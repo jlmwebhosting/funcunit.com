@@ -7,57 +7,39 @@ steal("documentjs", "steal/rhino/json.js", function (DocumentJS) {
 	}
 	var documentTitle = function(){
 		if(this.page.toLowerCase() == "index"){
-			return "CanJS"
+			return "FuncUnit"
 		}
 		
 		if(this.page !== "guides" && this.page !== "docs"){
-			return cap(this.page)+" - CanJS"
+			return cap(this.page)+" - FuncUnit"
 		}
 		
 		var title = this.title || this.name;
 		if(title){
 			if(title === "Guides"){
-				return cap(this.page)+ " - CanJS"
-			} else if(title === "CanJS"){
-				return "API - CanJS"
+				return cap(this.page)+ " - FuncUnit"
+			} else if(title === "FuncUnit"){
+				return "API - FuncUnit"
 			}
 			if(this.page === "docs"){
-				return (this.name || this.title) + " - CanJS API"
+				return (this.name || this.title) + " - FuncUnit API"
 			} else {
-				return title+" - CanJS "+cap(this.page)
+				return title+" - FuncUnit "+cap(this.page)
 			}
 		}
-		return "CanJS"
+		return "FuncUnit"
 	}
 
-	var pkg = JSON.parse(readFile('./can/package.json'));
-	var self = JSON.parse(readFile('./package.json'));
-	var builder = JSON.parse(readFile('./can/builder.json'));
-
 	DocumentJS('scripts/doc.html',{
-		"markdown": [ 'can' ],
 		"out": "docs",
-		"parent": "canjs",
+		"root": "..",
+		"parent": "FuncUnit",
 		// "static": "documentjs/site/static",
-		"root": '..',
-		"package": pkg,
-		"self": self,
-		"builder": builder,
-		// helpers: handlebarsHelpers,
-		"url": {
-			builderData: 'http://bitbuilder.herokuapp.com/canjs',
-			builder: 'http://bitbuilder.herokuapp.com/can.custom.js',
-			bithub: 'http://api.bithub.com/api/events/',
-			cdn: '//canjs.com/release/'
-		},
-		// TODO move out (possibly make a flag or something)
-		"layout": "shared/_templates/page.mustache",
-		"docs": "shared/_templates/docs.mustache",
 		"static" : "scripts/static",
 		"templates": "scripts/templates",
-		statics: {
-			src: "_pages"
-		},
+		// statics: {
+		// 	src: "_pages"
+		// },
 		helpers: function(data, config, getCurrent, oldHelpers){
 			return {
 				documentTitle: documentTitle
@@ -65,38 +47,20 @@ steal("documentjs", "steal/rhino/json.js", function (DocumentJS) {
 		}
 		
 	});
-	
-	var pkg = JSON.parse(readFile('./can/package.json'));
-	var self = JSON.parse(readFile('./package.json'));
-	var builder = JSON.parse(readFile('./can/builder.json'));
 
 	DocumentJS('_guides',{
-		"markdown": [ '_guides', 'can/changelog.md', 'can/contributing.md', 'can/license.md' ],
+		"markdown": [ '_guides'],
 		"out": "guides",
 		"parent": "guides",
-		// "static": "documentjs/site/static",
-		"root": '..',
-		"package": pkg,
-		"self": self,
-		"builder": builder,
+		"root": "..",
 		"page": "guides", 
-		// helpers: handlebarsHelpers,
-		"url": {
-			builderData: 'http://bitbuilder.herokuapp.com/canjs',
-			builder: 'http://bitbuilder.herokuapp.com/can.custom.js',
-			bithub: 'http://api.bithub.com/api/events/',
-			cdn: '//canjs.com/release/'
-		},
 		"static" : "scripts/static",
 		"templates": "scripts/templates",
 		helpers: function(data, config, getCurrent, oldHelpers){
 			return {
-				sourceUrl: function(src){
-					return "https://github.com/bitovi/canjs/wiki/"+src.replace(".md","").replace("_guides/","")
-				},
 				documentTitle: documentTitle
 			}
 		}
 	});
-	
+
 });

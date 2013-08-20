@@ -37,13 +37,13 @@
 		<nav class="container">
 
 			<div class="logo-menu">
-				<a class="brand canjs" href="{{url 'index.html'}}">CanJS</a>
+				<a class="brand funcunit" href="{{url 'index.html'}}">FuncUnit</a>
 				<ul class="dropdown-menu">
 					<li><a href="http://javascriptmvc.com">JavaScriptMVC</a></li>
 					<li class="active"><a href="{{url 'index.html'}}">CanJS</a></li>
 					<li><a href="http://jquerypp.com">jQuery++</a></li>
 					<li><a href="http://javascriptmvc.com/docs.html#!stealjs">StealJS</a></li>
-					<li><a href="http://javascriptmvc.com/docs.html#!FuncUnit">FuncUnit</a></li>
+					<li><a href="http://funcunit.com/docs">FuncUnit</a></li>
 					<li><a href="http://javascriptmvc.com/docs.html#!DocumentJS">DocumentJS</a></li>
 				</ul>
 			</div>
@@ -52,7 +52,6 @@
 				<li class="{{activePage 'guides'}}"><a href="{{url 'guides'}}/index.html">Guides</a></li>
 				<li class="{{activePage 'docs'}}"><a href="{{url 'docs'}}/index.html">Api</a></li>
 				<li class="{{activePage 'community'}}"><a href="{{url 'community.html#!forums'}}">Community</a></li>
-				<li class="{{activePage 'download'}}"><a href="{{url 'download.html'}}">Download</a></li>
 			</ul>
 			<div class="pull-right">
 				<div class="bitovi-menu">
@@ -81,19 +80,10 @@
 				<li class="{{activePage 'guides'}}"><a href="{{url 'guides'}}/index.html">Guides</a></li>
 				<li class="{{activePage 'docs'}}"><a href="{{url 'docs'}}/index.html">Api</a></li>
 				<li class="{{activePage 'community'}}"><a href="{{url 'community.html#!forums'}}">Community</a></li>
-				<li class="{{activePage 'download'}}"><a href="{{url 'download.html'}}">Download</a></li>
 			</ul>
 		</nav>
 	</footer>
 	<script type="text/javascript">
-		window.Bitovi = {
-			URL: {
-				BUILDER: '{{url.builder}}',
-				BUILDER_DATA: '{{url.builderData}}',
-				BITHUB: '{{url.bithub}}',
-				CDN: '{{url.cdn}}'
-			}
-		}
 		steal = {
 			productionId: "production.js",
 			executed: ["documentjs/site/static/build/production.css"]

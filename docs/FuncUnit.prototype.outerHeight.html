@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 7]>
+<html class="no-js ie lt-ie9 lt-ie8 lt-ie7" lang="en">
+<![endif]-->
+<!--[if IE 7]>
+<html class="no-js ie lt-ie9 lt-ie8" lang="en">
+<![endif]-->
+<!--[if IE 8]>
+<html class="no-js ie lt-ie9" lang="en">
+<![endif]-->
+<!--[if IE 9]>
+<html class="no-js ie ie9" lang="en">
+<![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<title>FuncUnit.prototype.outerHeight - FuncUnit API</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<link rel="stylesheet" type="text/css" 
+		
+			href='./static/production.css'
+		 />
+	<!--[if lt IE 9]>
+   <script type="text/javascript" src="../scripts/static/lib/html5shiv.js"></script>
+    <!--<![endif]-->
+</head>
+
+<body class="docs">
+	<header>
+		<nav class="container">
+
+			<div class="logo-menu">
+				<a class="brand funcunit" href="../index.html">FuncUnit</a>
+				<ul class="dropdown-menu">
+					<li><a href="http://javascriptmvc.com">JavaScriptMVC</a></li>
+					<li class="active"><a href="../index.html">CanJS</a></li>
+					<li><a href="http://jquerypp.com">jQuery++</a></li>
+					<li><a href="http://javascriptmvc.com/docs.html#!stealjs">StealJS</a></li>
+					<li><a href="http://funcunit.com/docs">FuncUnit</a></li>
+					<li><a href="http://javascriptmvc.com/docs.html#!DocumentJS">DocumentJS</a></li>
+				</ul>
+			</div>
+			<ul class="nav">
+				<li class=""><a href="../index.html">Home</a></li>
+				<li class=""><a href="../guides/index.html">Guides</a></li>
+				<li class="active"><a href="../docs/index.html">Api</a></li>
+				<li class=""><a href="../community.html#!forums">Community</a></li>
+			</ul>
+			<div class="pull-right">
+				<div class="bitovi-menu">
+					<a href="http://bitovi.com" class="bitovi icon-bits">Bitovi</a>
+					<ul class="dropdown-menu">
+						<li><a href="http://bitovi.com">Bitovi.com</a></li>
+						<li><a href="http://bitovi.com/blog/">Blog</a></li>
+						<li><a href="http://bitovi.com/consulting/">Consulting</a></li>
+						<li><a href="http://bitovi.com/training/">Training</a></li>
+						<li><a href="http://bitovi.com/open-source/">Open Source</a></li>
+						<li><a href="http://bitovi.com/people/">People</a></li>
+						<li><a href="http://bitovi.com/contact/">Contact Us</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	<div class="container api">
+	<nav class="sidebar">
+		
+		<div class="search-wrapper">
+			<div class="search">
+				<input type="text"/>
+			</div>
+		</div>
+		
+		<ul class="api">
+	<!-- First Level -->
+	
+	   <li class="search-container">
+	   		<a href="_queue.html" data-search="_queue">
+				_queue
+			</a>
+			
+	   </li>
+	
+	   <li class="search-container">
+	   		<a href="prototype.html" data-search="prototype">
+				prototype
+			</a>
+			
+	   </li>
+	
+	   <li class="search-container">
+	   		<a href="static.html" data-search="static">
+				static
+			</a>
+			
+	   </li>
+	
+</ul>
+	</nav>
+	<article class="content docs">
+		<section class="title">
+			<div class="pull-right">
+	<ul class="tags">
+		<li>function</li>
+	</ul>
+	<ul class="links">
+		
+			<li><a href="">source</a></li>
+		
+		
+			
+		
+		
+	</ul>
+</div>
+
+<h1>
+outerHeight
+
+	
+		<span class="module">FuncUnit.prototype.outerHeight</span>
+	
+
+
+</h1>
+
+<span class="inherits">&nbsp;</span>
+
+		</section>
+
+		<section class="contents">
+		</section>
+
+		<section class="description">
+			
+		</section>
+
+		
+		<section class="signature">
+			<h2>outerHeight([outerHeight] [,timeout] [,success] [,message])</h2>
+<div class="signature-wrapper">
+<p>Gets an element's <a href="http://api.jquery.com/outerHeight/">outerHeight</a> or waits until 
+it equals a specified value.</p>
+
+<pre><code class="lang-javascript">// gets the outerHeight
+S("#foo").outerHeight();
+
+// waits until the outerHeight is 100
+S("#foo").outerHeight(100) </code></pre>
+
+	<h3>Parameters</h3>
+
+	<ol class="parameters">
+		
+		<li class="parameter">
+			<h4>outerHeight
+				<code>{Number | function()}</code><span class="pull-right optional">Optional</span></h4>
+			<div class="description">
+				<p>If provided uses this as a check before continuing to the next action.  Or you can 
+provide a function that returns true to continue to the next action.</p>
+			</div>
+			
+			
+			
+			
+			
+		</li>
+		
+		<li class="parameter">
+			<h4>timeout
+				<code>{Number}</code><span class="pull-right optional">Optional</span></h4>
+			<div class="description">
+				<p>overrides FuncUnit.timeout.  If provided, the wait will fail if not completed before this timeout.</p>
+			</div>
+			
+			
+			
+		</li>
+		
+		<li class="parameter">
+			<h4>success
+				<code>{function()}</code><span class="pull-right optional">Optional</span></h4>
+			<div class="description">
+				<p>a callback that will run after this action completes.</p>
+			</div>
+			
+			
+			
+		</li>
+		
+		<li class="parameter">
+			<h4>message
+				<code>{String}</code><span class="pull-right optional">Optional</span></h4>
+			<div class="description">
+				<p>if provided, an assertion will be passed when this wait condition completes successfully</p>
+			</div>
+			
+			
+			
+		</li>
+		
+	</ol>
+
+
+	<h3>Returns</h3>
+	<div class="returns">
+		<h4><code>{String | funcUnit}</code></h4>
+		<div class="description">
+			<p>if outerHeight is provided, 
+returns the funcUnit selector for chaining, otherwise returns the outerHeight of the selector.</p>
+		</div>
+	</div>
+
+
+</div>
+
+		</section>
+		
+
+		
+
+		
+
+		
+	</article>
+</div>
+
+
+
+	<footer>
+		<nav class="container">
+			<a class="brand javascriptmvc" href="index.html"></a>
+			<ul class="nav">
+				<li class=""><a href="../index.html">Home</a></li>
+				<li class=""><a href="../guides/index.html">Guides</a></li>
+				<li class="active"><a href="../docs/index.html">Api</a></li>
+				<li class=""><a href="../community.html#!forums">Community</a></li>
+			</ul>
+		</nav>
+	</footer>
+	<script type="text/javascript">
+		steal = {
+			productionId: "production.js",
+			executed: ["documentjs/site/static/build/production.css"]
+		}
+	</script>
+	<script 
+	
+		src="./static/steal.production.js"
+	
+		></script>
+</body>
+
+</html>
