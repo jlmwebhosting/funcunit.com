@@ -1,9 +1,3 @@
-[submodule "syn"]
-	path = syn
-	url = https://github.com/bitovi/syn.git
-[submodule "funcunit"]
-	path = funcunit
-	url = git@github.com:bitovi/funcunit.js
 [submodule "steal"]
 	path = steal
 	url = git@github.com:bitovi/steal
@@ -13,3 +7,6 @@
 [submodule "documentjs"]
 	path = documentjs
 	url = git@github.com:bitovi/documentjs
+[submodule "funcunit"]
+	path = funcunit
+	url = git@github.com:bitovi/funcunit
