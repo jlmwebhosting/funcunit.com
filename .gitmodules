@@ -9,4 +9,4 @@
 	url = git@github.com:bitovi/documentjs
 [submodule "funcunit"]
 	path = funcunit
-	url = git@github.com:bitovi/funcunit
+	url = git@github.com:bitovi/funcunit.js

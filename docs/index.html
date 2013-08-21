@@ -81,22 +81,29 @@
 	<!-- First Level -->
 	
 	   <li class="search-container">
-	   		<a href="_queue.html" data-search="_queue">
+	   		<a href="FuncUnit._queue.html" data-search="FuncUnit._queue">
 				_queue
 			</a>
 			
 	   </li>
 	
 	   <li class="search-container">
-	   		<a href="prototype.html" data-search="prototype">
+	   		<a href="FuncUnit.prototype.html" data-search="FuncUnit.prototype">
 				prototype
 			</a>
 			
 	   </li>
 	
 	   <li class="search-container">
-	   		<a href="static.html" data-search="static">
+	   		<a href="FuncUnit.static.html" data-search="FuncUnit.static">
 				static
+			</a>
+			
+	   </li>
+	
+	   <li class="search-container">
+	   		<a href="FuncUnit.actions.html" data-search="Actions">
+				Actions
 			</a>
 			
 	   </li>
@@ -107,9 +114,11 @@
 		<section class="title">
 			<div class="pull-right">
 	<ul class="tags">
-		<li></li>
+		<li>constructor</li>
 	</ul>
 	<ul class="links">
+		
+			<li><a href="">source</a></li>
 		
 		
 			
@@ -139,6 +148,196 @@ FuncUnit
 
 		
 
+		
+		<section class="comment">
+			<!--
+
+
+-->
+
+<p>FuncUnit tests web applications with a simple jQuery-like syntax. Via integration with
+[funcunit.selenium Selenium] and [funcunit.phantomjs PhantomJS], you can run the same tests automated.</p>
+
+<p>FuncUnit uses <a href="http://docs.jquery.com/Qunit">QUnit</a> for organizing tests and assertions.  But FuncUnit extends QUnit so you can:</p>
+
+<ul>
+<li><a href="FuncUnit.open.html">Open</a> a web page</li>
+<li>[funcunit.finding Query] for elements</li>
+<li>[funcunit.actions Simulate] a user action</li>
+<li>[funcunit.waits Wait] for a condition to be true</li>
+<li>[funcunit.getters Get] information about your page and run assertions</li>
+</ul>
+
+<p>Then, you can:</p>
+
+<ul>
+<li>Run tests in the browser</li>
+<li>[funcunit.integrations Integrate] with browser automation and build tools</li>
+</ul>
+
+<p>The [funcunit.getstarted FuncUnit Getting Started] guide is a quick walkthrough of creating and running a test.</p>
+
+<h2>Set up a test</h2>
+
+<p><a href="http://docs.jquery.com/Qunit">QUnit</a> provides the basic structure needed to write unit or functional tests.</p>
+
+<p><strong>Module</strong></p>
+
+<p><a href="http://docs.jquery.com/QUnit/module#namelifecycle">Modules</a> are groups of tests with setup and teardown methods that run for each test.</p>
+
+<pre><code>module("Contacts", {
+  // runs before each test
+  setup: function(){
+    // setup code
+  },
+  // runs after each test
+  teardown: function(){
+    // cleanup code
+  }
+})
+</code></pre>
+
+<p><strong>Test</strong></p>
+
+<pre><code>test("findOne", function(){
+  // define a test
+})
+</code></pre>
+
+<p><strong>Assertions</strong></p>
+
+<pre><code>test("counter", function() {
+  ok(Conctacts.first().name, "there is a name property");
+  equal(Contacts.counter(), 5, "there are 5 contacts");
+});
+</code></pre>
+
+<h2>Open a page</h2>
+
+<p>The following uses <code>S.open( URL )</code> to open autocomplete.html before every test.</p>
+
+<pre><code>module("autosuggest",{
+  setup: function() {
+    S.open('autosuggest.html')
+  }
+});
+</code></pre>
+
+<p>Calling open on window will cause FuncUnit commands to operate on the current window.  This is also the default if you don't open any page.</p>
+
+<h2>Query for elements</h2>
+
+<p>FuncUnit tests are written just like jQuery.  The [funcunit.finding S method] is a copy of jQuery, which queries for elements in
+the application page.  Like $, FuncUnit methods are chainable on the results of S.</p>
+
+<pre><code>// grab the #description element, wait for it to be visible, type in it
+S("#description").visible().type("Test Framework")
+</code></pre>
+
+<h2>Simulate user actions</h2>
+
+<p>When you're testing a widget, you need to simulate the [funcunit.actions actions] that a user takes.  FuncUnit uses the
+[syn] library to accurately simulate the correct low level events like mouseup and keypress for high
+level actions like <a href="FuncUnit.prototype.click.html">FuncUnit.prototype.click</a> and <a href="FuncUnit.prototype.type.html">FuncUnit.prototype.type</a>.  The following shows how to simulate common user actions.</p>
+
+<p><strong>Click</strong></p>
+
+<pre><code>// click a button
+S('#submit_button').click()
+</code></pre>
+
+<p><strong>Type</strong></p>
+
+<pre><code>// type in an input
+S('#task_name').type("Learn FuncUnit")
+</code></pre>
+
+<p><strong>Drag</strong></p>
+
+<pre><code>// drag a task item to the trash area
+S('.task').drag(".trash");
+</code></pre>
+
+<h2>Wait for page conditions</h2>
+
+<p>After a user action, your test page's event handlers run and the page is changed.
+Wait commands are used to wait for some page condition before continuing.</p>
+
+<p>Waits are overloaded jQuery getter methods.  <code>S.fn.text( textVal, callback )</code>
+waits for an element's $.fn.text to match the textVal.</p>
+
+<pre><code>// wait for result to show "task complete"
+S("#result").text("task complete")
+</code></pre>
+
+<p><strong>Visible</strong></p>
+
+<pre><code>// wait for first result to be visible
+S('#autocomplete_results:first-child').visible()
+</code></pre>
+
+<p><strong>Width</strong></p>
+
+<pre><code>// after clicking a menu item, wait for its width to be 200px
+S('#horizontal_menu_item').width(200)
+</code></pre>
+
+<p><strong>Val</strong></p>
+
+<pre><code>// wait for the input value
+S('#language_input').val("JavaScript")
+</code></pre>
+
+<p><strong>Size</strong></p>
+
+<pre><code>// wait for number of matched elements
+S('.contact').size(5)
+</code></pre>
+
+<p>There are many more [funcunit.waits waits] possible.</p>
+
+<h2>Get information and run assertions</h2>
+
+<p>After simulating an action and waiting for the page to change, you often want to get information
+about an element and run assertions.  You can use jQuery getter methods in combination with QUnit assertions.</p>
+
+<p>These methods (which return synchronous results) are used in callbacks that run after a wait method completes.</p>
+
+<pre><code>// wait until we have some results, then call the calback
+S('.autocomplete_item').visible(function(){
+  equal( S('.autocomplete_item').size(), 5, "there are 5 results")
+})
+</code></pre>
+
+<h2>Running in browser</h2>
+
+<p>These tests can be loaded in any browser.  The app page opens in a separate window and results show up in the QUnit page.</p>
+
+<pre><code>test("JavaScript results",function(){
+  S('input').click().type("JavaScript")
+
+  // wait until we have some results
+  S('.autocomplete_item').visible(function(){
+    equal( S('.autocomplete_item').size(), 5, "there are 5 results")
+  })
+});
+</code></pre>
+
+<p><a href='funcunit/test/autosuggest/funcunit.html'>Run this test</a> (turn off your popup blocker!)</p>
+
+<h2>Integrating with automation and build tools</h2>
+
+<p>The same tests can be run via browser automation tools: [funcunit.selenium Selenium],
+[funcunit.phantomjs PhantomJS], and [funcunit.envjs Envjs].</p>
+
+<p>These tools are driven via commandline.</p>
+
+<pre><code>js funcunit/open/phantomjs path/to/funcunit.html
+</code></pre>
+
+<p>Results are reported on the commandline.  Failed tests can be made to fail your build via [funcunit.maven Maven]
+or integrated with CI tools like [funcunit.jenkins Jenkins].</p>
+		</section>
 		
 
 		

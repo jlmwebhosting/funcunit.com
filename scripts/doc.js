@@ -31,15 +31,15 @@ steal("documentjs", "steal/rhino/json.js", function (DocumentJS) {
 	}
 
 	DocumentJS('scripts/doc.html',{
+		"markdown": ['funcunit'],
 		"out": "docs",
 		"root": "..",
 		"parent": "FuncUnit",
-		// "static": "documentjs/site/static",
 		"static" : "scripts/static",
 		"templates": "scripts/templates",
-		// statics: {
-		// 	src: "_pages"
-		// },
+		statics: {
+			src: "_pages"
+		},
 		helpers: function(data, config, getCurrent, oldHelpers){
 			return {
 				documentTitle: documentTitle
