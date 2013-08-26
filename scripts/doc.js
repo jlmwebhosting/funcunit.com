@@ -30,6 +30,21 @@ steal("documentjs", "steal/rhino/json.js", function (DocumentJS) {
 		return "FuncUnit"
 	}
 
+	DocumentJS('_guides',{
+		"markdown": [ '_guides'],
+		"out": "guides",
+		"parent": "guides",
+		"root": "..",
+		"page": "guides", 
+		"static" : "scripts/static",
+		"templates": "scripts/templates",
+		helpers: function(data, config, getCurrent, oldHelpers){
+			return {
+				documentTitle: documentTitle
+			}
+		}
+	});
+
 	DocumentJS('scripts/doc.html',{
 		"markdown": ['funcunit'],
 		"out": "docs",
@@ -46,21 +61,6 @@ steal("documentjs", "steal/rhino/json.js", function (DocumentJS) {
 			}
 		}
 		
-	});
-
-	DocumentJS('_guides',{
-		"markdown": [ '_guides'],
-		"out": "guides",
-		"parent": "guides",
-		"root": "..",
-		"page": "guides", 
-		"static" : "scripts/static",
-		"templates": "scripts/templates",
-		helpers: function(data, config, getCurrent, oldHelpers){
-			return {
-				documentTitle: documentTitle
-			}
-		}
 	});
 
 });
