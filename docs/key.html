@@ -81,29 +81,50 @@
 	<!-- First Level -->
 	
 	   <li class="search-container">
-	   		<a href="FuncUnit._queue.html" data-search="FuncUnit._queue">
-				_queue
+	   		<a href="actions.html" data-search="Actions">
+				Actions
 			</a>
 			
 	   </li>
 	
 	   <li class="search-container">
-	   		<a href="FuncUnit.prototype.html" data-search="FuncUnit.prototype">
-				prototype
+	   		<a href="css.html" data-search="CSS">
+				CSS
 			</a>
 			
 	   </li>
 	
 	   <li class="search-container">
-	   		<a href="FuncUnit.static.html" data-search="FuncUnit.static">
+	   		<a href="dimensions.html" data-search="Dimensions">
+				Dimensions
+			</a>
+			
+	   </li>
+	
+	   <li class="search-container">
+	   		<a href="manipulation.html" data-search="Manipulation">
+				Manipulation
+			</a>
+			
+	   </li>
+	
+	   <li class="search-container">
+	   		<a href="static.html" data-search="static">
 				static
 			</a>
 			
 	   </li>
 	
 	   <li class="search-container">
-	   		<a href="FuncUnit.actions.html" data-search="Actions">
-				Actions
+	   		<a href="traversal.html" data-search="Traversal">
+				Traversal
+			</a>
+			
+	   </li>
+	
+	   <li class="search-container">
+	   		<a href="waits.html" data-search="Waits">
+				Waits
 			</a>
 			
 	   </li>
@@ -141,20 +162,81 @@ key
 		</section>
 
 		<section class="description">
-			
+			<p>Types a single key.  The key should be
+a string that matches a 
+[Syn.static.keycodes].</p>
 		</section>
 
 		
 
 		
-
 		
-		<section class="comment">
-			<p>Types a single key.  The key should be
+		
+			<section class="signature">
+				<h2>Synkey(options, element, callback)</h2>
+<div class="signature-wrapper">
+<p>Types a single key.  The key should be
 a string that matches a 
 [Syn.static.keycodes].</p>
 
-<p>The following sends a carridge return
+	<h3>Parameters</h3>
+
+	<ol class="parameters">
+		
+		<li class="parameter">
+			<h4>options
+				<code>{String}</code></h4>
+			<div class="description">
+				
+			</div>
+			
+			
+			
+		</li>
+		
+		<li class="parameter">
+			<h4>element
+				<code>{HTMLElement}</code><span class="pull-right optional">Optional</span></h4>
+			<div class="description">
+				
+			</div>
+			
+			
+			
+		</li>
+		
+		<li class="parameter">
+			<h4>callback
+				<code>{function()}</code><span class="pull-right optional">Optional</span></h4>
+			<div class="description">
+				
+			</div>
+			
+			
+			
+		</li>
+		
+	</ol>
+
+
+	<h3>Returns</h3>
+	<div class="returns">
+		<h4><code>{HTMLElement}</code></h4>
+		<div class="description">
+			<p>the element currently focused.</p>
+		</div>
+	</div>
+
+
+</div>
+
+			</section>
+		
+		
+
+		
+		<section class="comment">
+			<p>The following sends a carridge return
 to the 'name' element.</p>
 
 <p><pre><code class="lang-javascript">Syn.key('\r','name')</code></pre>For each character, a keydown, keypress, and keyup is triggered if

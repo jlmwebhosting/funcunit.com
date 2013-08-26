@@ -1,6 +1,11 @@
+.hero-background:before {
+	content: "\e054";
+	color: #fff;
+	font-size: "50px"
+}
+
 .hero {
-	background: url(../img/hero-ribbons.png) no-repeat center center, url(../img/bkg-dots-dark.png) #797977;
-	border-bottom: 20px solid @color;
+	background: #2c83a0;
 	height: 242px;
 	overflow: visible;
 	
@@ -14,16 +19,14 @@
 		text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.52);
 		font-size: 40px;
 		display: block;
-		width: 500px;
-		float: left;
-		margin-top: 65px;
+		margin-bottom: 50px;
 		letter-spacing: -1px;
 		font-weight: normal;
 		font-style: normal;
 	}
 	
 	.pull-right {
-		margin-top: 65px;
+		margin-top: 25px;
 		text-align: center;
 	}
 	
@@ -400,6 +403,15 @@
 		content: "\e042";
 	}
 }
+
+.container.benefits {
+	padding-top: 40px;
+
+	h1 {
+		color: @light;
+	}
+}
+
 .container.benefits .benefit-tabs {
 	margin-top: -83px;
 }

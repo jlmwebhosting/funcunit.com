@@ -81,29 +81,50 @@
 	<!-- First Level -->
 	
 	   <li class="search-container">
-	   		<a href="FuncUnit._queue.html" data-search="FuncUnit._queue">
-				_queue
+	   		<a href="actions.html" data-search="Actions">
+				Actions
 			</a>
 			
 	   </li>
 	
 	   <li class="search-container">
-	   		<a href="FuncUnit.prototype.html" data-search="FuncUnit.prototype">
-				prototype
+	   		<a href="css.html" data-search="CSS">
+				CSS
 			</a>
 			
 	   </li>
 	
 	   <li class="search-container">
-	   		<a href="FuncUnit.static.html" data-search="FuncUnit.static">
+	   		<a href="dimensions.html" data-search="Dimensions">
+				Dimensions
+			</a>
+			
+	   </li>
+	
+	   <li class="search-container">
+	   		<a href="manipulation.html" data-search="Manipulation">
+				Manipulation
+			</a>
+			
+	   </li>
+	
+	   <li class="search-container">
+	   		<a href="static.html" data-search="static">
 				static
 			</a>
 			
 	   </li>
 	
 	   <li class="search-container">
-	   		<a href="FuncUnit.actions.html" data-search="Actions">
-				Actions
+	   		<a href="traversal.html" data-search="Traversal">
+				Traversal
+			</a>
+			
+	   </li>
+	
+	   <li class="search-container">
+	   		<a href="waits.html" data-search="Waits">
+				Waits
 			</a>
 			
 	   </li>
@@ -141,21 +162,75 @@ type
 		</section>
 
 		<section class="description">
-			
+			<p>Types sequence of [Syn.key key actions].  Each
+character is typed, one at a type.
+Multi-character keys like 'left' should be
+enclosed in square brackents.</p>
 		</section>
 
 		
 
 		
-
 		
-		<section class="comment">
-			<p>Types sequence of [Syn.key key actions].  Each
+		
+			<section class="signature">
+				<h2>Syntype(options, element, callback)</h2>
+<div class="signature-wrapper">
+<p>Types sequence of [Syn.key key actions].  Each
 character is typed, one at a type.
 Multi-character keys like 'left' should be
 enclosed in square brackents.</p>
 
-<p>The following types 'JavaScript MVC' then deletes the space.</p>
+	<h3>Parameters</h3>
+
+	<ol class="parameters">
+		
+		<li class="parameter">
+			<h4>options
+				<code>{String}</code></h4>
+			<div class="description">
+				<p>the text to type</p>
+			</div>
+			
+			
+			
+		</li>
+		
+		<li class="parameter">
+			<h4>element
+				<code>{HTMLElement}</code><span class="pull-right optional">Optional</span></h4>
+			<div class="description">
+				<p>an element or an id of an element</p>
+			</div>
+			
+			
+			
+		</li>
+		
+		<li class="parameter">
+			<h4>callback
+				<code>{function()}</code><span class="pull-right optional">Optional</span></h4>
+			<div class="description">
+				<p>a function to callback</p>
+			</div>
+			
+			
+			
+		</li>
+		
+	</ol>
+
+
+
+</div>
+
+			</section>
+		
+		
+
+		
+		<section class="comment">
+			<p>The following types 'JavaScript MVC' then deletes the space.</p>
 
 <pre><code class="lang-javascript">Syn.type('JavaScript MVC[left][left][left]\b','name')</code></pre>
 
