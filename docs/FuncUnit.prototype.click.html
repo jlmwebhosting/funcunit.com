@@ -286,25 +286,21 @@ click
 		<section class="signature">
 			<h2>click(options [,success])</h2>
 <div class="signature-wrapper">
-<p>Clicks an element.  This uses [Syn.prototype.click] to issue a:</p>
+<p>Clicks an element.  This uses [Syn.prototype.click] to issue a:
+ <ul>
+     <li><code>mousedown</code></li>
+  <li><code>focus</code> - if the element is focusable</li>
+  <li><code>mouseup</code></li>
+  <li><code>click</code></li>
+ </ul>
+ If no clientX/Y or pageX/Y is provided as options, the click happens at the 
+ center of the element.
+ <p>For a right click or double click use <a href="FuncUnit.prototype.rightClick.html">FuncUnit.prototype.rightClick</a> or
+   <a href="FuncUnit.prototype.dblclick.html">FuncUnit.prototype.dblclick</a>.</p>
+ <h3>Example</h3></p>
 
-<ul>
-    <li><code>mousedown</code></li>
- <li><code>focus</code> - if the element is focusable</li>
- <li><code>mouseup</code></li>
- <li><code>click</code></li>
-</ul>
-
-<p>If no clientX/Y or pageX/Y is provided as options, the click happens at the 
-center of the element.</p>
-
-<p>For a right click or double click use <a href="FuncUnit.prototype.rightClick.html">FuncUnit.prototype.rightClick</a> or
-  <a href="FuncUnit.prototype.dblclick.html">FuncUnit.prototype.dblclick</a>.</p>
-
-<h3>Example</h3>
-
-<pre><code class="lang-javascript">//clicks the bar element
-S("#bar").click()</code></pre>
+<pre><code class="lang-javascript"> //clicks the bar element
+F("#bar").click()</code></pre>
 
 	<h3>Parameters</h3>
 
@@ -316,11 +312,11 @@ S("#bar").click()</code></pre>
 			<div class="description">
 				<p>options to pass to the click event.  Typically, this is clientX/Y or pageX/Y:</p>
 
-<pre><code class="lang-javascript">$('#foo').click({pageX: 200, pageY: 100});</code></pre>
+<pre><code class="lang-javascript"> $('#foo').click({pageX: 200, pageY: 100});</code></pre>
 
 <p>You can pass it any of the serializable parameters you'd send to 
-<a href="http://developer.mozilla.org/en/DOM/event.initMouseEvent">initMouseEvent</a>, but command keys are 
-controlled by <a href="FuncUnit.prototype.type.html">FuncUnit.prototype.type</a>.</p>
+ <a href="http://developer.mozilla.org/en/DOM/event.initMouseEvent">initMouseEvent</a>, but command keys are 
+ controlled by <a href="FuncUnit.prototype.type.html">FuncUnit.prototype.type</a>.</p>
 			</div>
 			
 			

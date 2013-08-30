@@ -336,12 +336,12 @@ run one method if you're unsure about the conditions of your page, without causi
 failure.  For example, this is useful for login steps, if you're not sure whether the app
 is logged in.</p>
 
-<pre><code class="lang-javascript">  S.branch(function(){
-       return (S("#exists").size() > 0);
+<pre><code class="lang-javascript">  F.branch(function(){
+       return (F("#exists").size() > 0);
    }, function(){
        ok(true, "found exists")
    }, function(){
-       return (S("#notexists").size() > 0);
+       return (F("#notexists").size() > 0);
    }, function(){
        ok(false, "found notexists")
    });</code></pre>

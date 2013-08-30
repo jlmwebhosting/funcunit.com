@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="../funcunit/qunit/qunit.css" />
+		<style>
+			iframe {
+				border: 0;
+				width: 550px;
+				height: 400px;
+				display: block;
+				margin:10px auto 0;
+			}
+		</style>
+		<title>QUnit w/ FuncUnit Test</title>
+	</head>
+	<body>
+		<div id="qunit">
+			<h1 id="qunit-header"></h1>
+			<div id="qunit-testrunner-toolbar"></div>
+			<h2 id="qunit-userAgent"></h2>
+			<div id="test-content"></div>
+			<ol id="qunit-tests"></ol>
+			<div id="qunit-test-area"></div>
+		</div>
+		<script type='text/javascript' src='../funcunit/steal/steal.js?../../../examples/todo_test.js'></script>
+		<iframe src="todo/index.html" name="todo"></iframe>
+	</body>
+</html>

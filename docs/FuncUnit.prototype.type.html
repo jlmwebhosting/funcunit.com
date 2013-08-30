@@ -287,30 +287,29 @@ type
 			<h2>type(text [,success])</h2>
 <div class="signature-wrapper">
 <p>Types text into an element.  This makes use of [Syn.type] and works in 
-a very similar way.</p>
+ a very similar way.
+ <h3>Quick Examples</h3></p>
 
-<h3>Quick Examples</h3>
+<pre><code class="lang-javascript"> //types hello world
+F('#bar').type('hello world')
 
-<pre><code class="lang-javascript">//types hello world
-S('#bar').type('hello world')
+ //submits a form by typing \r
+F("input[name=age]").type("27\r")
 
-//submits a form by typing \r
-S("input[name=age]").type("27\r")
+ //types FuncUnit, then deletes the Unit
+F('#foo').type("FuncUnit\b\b\b\b")
 
-//types FuncUnit, then deletes the Unit
-S('#foo').type("FuncUnit\b\b\b\b")
+ //types JavaScriptMVC, then removes the MVC
+F('#zar').type("JavaScriptMVC[left][left][left]"+
+                      "[delete][delete][delete]")
 
-//types JavaScriptMVC, then removes the MVC
-S('#zar').type("JavaScriptMVC[left][left][left]"+
-                     "[delete][delete][delete]")
+ //types JavaScriptMVC, then selects the MVC and
+ //deletes it
+F('#zar').type("JavaScriptMVC[shift]"+
+                "[left][left][left]"+
+                "[shift-up][delete]")</code></pre>
 
-//types JavaScriptMVC, then selects the MVC and
-//deletes it
-S('#zar').type("JavaScriptMVC[shift]"+
-               "[left][left][left]"+
-               "[shift-up][delete]")</code></pre>
-
-<h2>Characters</h2>
+<p><h2>Characters</h2></p>
 
 <p>For a list of the characters you can type, check <a href="Syn.keycodes.html">Syn.keycodes</a>.</p>
 

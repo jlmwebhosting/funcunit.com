@@ -347,18 +347,18 @@ size
 			<h2>size([size] [,timeout] [,success] [,message])</h2>
 <div class="signature-wrapper">
 <p>Gets the number of elements matched by the selector or
-waits until the the selector is size.  You can also 
-provide a function that continues to the next action when
-it returns true.</p>
+ waits until the the selector is size.  You can also 
+ provide a function that continues to the next action when
+ it returns true.</p>
 
-<pre><code class="lang-javascript">S(".recipe").size() //gets the number of recipes
+<pre><code class="lang-javascript">F(".recipe").size() //gets the number of recipes
 
-S(".recipe").size(2) //waits until there are 2 recipes
+F(".recipe").size(2) //waits until there are 2 recipes
 
-//waits until size is count
-S(".recipe").size(function(size){
-  return size == count;
-})</code></pre>
+ //waits until size is count
+F(".recipe").size(function(size){
+   return size == count;
+ })</code></pre>
 
 	<h3>Parameters</h3>
 
@@ -418,7 +418,7 @@ S(".recipe").size(function(size){
 		<h4><code>{Number}</code></h4>
 		<div class="description">
 			<p>if the size parameter is not provided, size returns the number
-of elements matched.</p>
+ of elements matched.</p>
 		</div>
 	</div>
 

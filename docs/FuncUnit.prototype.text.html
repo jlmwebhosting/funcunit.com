@@ -243,14 +243,14 @@ text
 <div class="signature-wrapper">
 <p>Gets the <a href="http://api.jquery.com/text/">text</a> from an element or waits until the text is a certain value.</p>
 
-<pre><code class="lang-javascript">//checks foo's text has "JupiterJS"
-ok( /JupiterJS/.test( S('#foo').text() ) )
+<pre><code class="lang-javascript"> //checks foo's text has "JupiterJS"
+ ok( /JupiterJS/.test(F('#foo').text() ) )
 
-//waits until bar's text has JupiterJS
-S('#foo').text(/JupiterJS/)
+ //waits until bar's text has JupiterJS
+F('#foo').text(/JupiterJS/)
 
-//waits until bar's text is JupiterJS
-S('#foo').text("JupiterJS")</code></pre>
+ //waits until bar's text is JupiterJS
+F('#foo').text("JupiterJS")</code></pre>
 
 	<h3>Parameters</h3>
 
@@ -310,7 +310,7 @@ S('#foo').text("JupiterJS")</code></pre>
 		<h4><code>{String | funcUnit}</code></h4>
 		<div class="description">
 			<p>if the text parameter is provided, 
-returns the funcUnit selector for chaining, otherwise returns the html of the selector.</p>
+ returns the funcUnit selector for chaining, otherwise returns the html of the selector.</p>
 		</div>
 	</div>
 

@@ -243,14 +243,14 @@ val
 <div class="signature-wrapper">
 <p>Gets the <a href="http://api.jquery.com/val/">val</a> from an element or waits until the val is a certain value.</p>
 
-<pre><code class="lang-javascript">//checks foo's val has "JupiterJS"
-ok( /JupiterJS/.test( S('input#foo').val() ) )
+<pre><code class="lang-javascript"> //checks foo's val has "JupiterJS"
+ ok( /JupiterJS/.test(F('input#foo').val() ) )
 
-//waits until bar's val has JupiterJS
-S('input#foo').val(/JupiterJS/)
+ //waits until bar's val has JupiterJS
+F('input#foo').val(/JupiterJS/)
 
-//waits until bar's val is JupiterJS
-S('input#foo').val("JupiterJS")</code></pre>
+ //waits until bar's val is JupiterJS
+F('input#foo').val("JupiterJS")</code></pre>
 
 	<h3>Parameters</h3>
 
@@ -310,7 +310,7 @@ S('input#foo').val("JupiterJS")</code></pre>
 		<h4><code>{String | funcUnit}</code></h4>
 		<div class="description">
 			<p>if the val parameter is provided, 
-returns the funcUnit selector for chaining, otherwise returns the html of the selector.</p>
+ returns the funcUnit selector for chaining, otherwise returns the html of the selector.</p>
 		</div>
 	</div>
 

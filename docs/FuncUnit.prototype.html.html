@@ -243,14 +243,14 @@ html
 <div class="signature-wrapper">
 <p>Gets the <a href="http://api.jquery.com/html/">html</a> from an element or waits until the html is a certain value.</p>
 
-<pre><code class="lang-javascript">//checks foo's html has "JupiterJS"
-ok( /JupiterJS/.test( S('#foo').html() ) )
+<pre><code class="lang-javascript"> //checks foo's html has "JupiterJS"
+ ok( /JupiterJS/.test(F('#foo').html() ) )
 
-//waits until foo's html has JupiterJS
-S('#foo').html(/JupiterJS/)
+ //waits until foo's html has JupiterJS
+F('#foo').html(/JupiterJS/)
 
-//waits until foo's html is JupiterJS
-S('#foo').html("JupiterJS")</code></pre>
+ //waits until foo's html is JupiterJS
+F('#foo').html("JupiterJS")</code></pre>
 
 	<h3>Parameters</h3>
 
@@ -310,7 +310,7 @@ S('#foo').html("JupiterJS")</code></pre>
 		<h4><code>{String | funcUnit}</code></h4>
 		<div class="description">
 			<p>if the html parameter is provided, 
-returns the funcUnit selector for chaining, otherwise returns the html of the selector.</p>
+ returns the funcUnit selector for chaining, otherwise returns the html of the selector.</p>
 		</div>
 	</div>
 
