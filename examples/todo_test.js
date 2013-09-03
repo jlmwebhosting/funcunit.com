@@ -9,6 +9,8 @@ This is not necessarily standard, however we're using an iframe on the demo page
 module('todomvc');
 
 test('basic todo functionality', function() {
+	expect(0);
+
 	F('#new-todo', 0).type('FuncUnit [enter]');
 	F('#new-todo', 0).type('is [enter]');
 	F('#new-todo', 0).type('awesome! [enter]');
