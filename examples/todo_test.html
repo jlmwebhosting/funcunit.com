@@ -26,7 +26,9 @@
 		<script src='../lib/qunit/qunit/qunit.js'></script>
 
 		<script type="text/javascript">
-			QUnit.config.autostart = false;
+			if(/init/.test(window.location.search)) {
+				QUnit.config.autostart = false;
+			}
 		</script>
 
 		<script src='../funcunit/dist/funcunit.js'></script>
