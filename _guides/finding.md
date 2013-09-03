@@ -2,9 +2,9 @@
 @parent guides
 
 @body
-## The S Method
+## The F Method
 
-S is a copy of the $ method.  It is used to find elements in the page you're testing.  It works 
+F is a copy of the $ method.  It is used to find elements in the page you're testing.  It works 
 slightly differently than $.
 
 @codestart
