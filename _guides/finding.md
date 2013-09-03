@@ -8,7 +8,7 @@ S is a copy of the $ method.  It is used to find elements in the page you're tes
 slightly differently than $.
 
 @codestart
-S( selector, [context] )
+F( selector, [context] )
 @codeend
 
 ### Params
@@ -26,7 +26,7 @@ when previous queued methods have finished.  Read more about this below.
 
 @codestart
 // look up .foo elements in the application window
-S(".foo")
+F(".foo")
 @codeend
 
 _Function_
@@ -35,22 +35,22 @@ If a function is provided, it will be added to the queue to be run after previou
 
 @codestart
 // Wait for this to be visible
-S(".grid").visible()
+F(".grid").visible()
 
 // Run after the previous wait completes
-S(function(){
-	ok(S(".foo").hasClass('bar'))
+F(function(){
+	ok(F(".foo").hasClasF('bar'))
 })
 @codeend
 
 _Object_
 
-If you want to reference the test page's window or document, pass <code>S.window</code> 
-or <code>S.window.document</code>.
+If you want to reference the test page's window or document, pass <code>F.window</code> 
+or <code>F.window.document</code>.
 
 @codestart
 // click the test page's document element
-S(S.window.document).click()
+F(F.window.document).click()
 @codeend
 
 __[context]__ <code>{Number|String}</code>
@@ -61,10 +61,10 @@ and this is passed as the context of the query.
 
 @codestart
 // find something in the 0th frame
-S("a.mylink", 0)
+F("a.mylink", 0)
 
 // find something within the frame that has name="myframe"
-S("a.another, "myframe")
+F("a.another, "myframe")
 @codeend
 
 ### Synchronous vs asynchronous queries
@@ -82,9 +82,9 @@ Inside these callbacks, you get information about the page and perform assertion
 Any time S is called inside a callback, it runs synchronously and returns a jQuery collection.
 
 @codestart
-S(".foo").visible(function(){
+F(".foo").visible(function(){
   // this will run immediately and return a $ collection
-  var size = S(".bar").size();
+  var size = F(".bar").size();
   equal(size, 5);
 })
 @codeend
@@ -100,9 +100,9 @@ item is added to the queue, S will run synchronously.
 @codestart
 test("contacts test", function(){
   // runs synchronously
-  var origNbrItems = S(".contacts").size();
-  S(".addNew").click(function(){
-    var newNbrItems = S(".contacts").size();
+  var origNbrItems = F(".contacts").size();
+  F(".addNew").click(function(){
+    var newNbrItems = F(".contacts").size();
     ok(newNbrItems > origNbrItems);
   });
 })
@@ -112,12 +112,12 @@ Beware that you MUST put any synchronous getters inside a callback or before any
 
 @codestart
 test("contacts test", function(){
-  S(".addNew").click(function(){
-    var newNbrItems = S(".contacts").size();
+  F(".addNew").click(function(){
+    var newNbrItems = F(".contacts").size();
     ok(newNbrItems > origNbrItems);
   });
   // this will fail!  
-  var origNbrItems = S(".contacts").size();
+  var origNbrItems = F(".contacts").size();
 })
 @codeend
 
@@ -129,17 +129,17 @@ immediate query and returning a collection would be wasteful and slow down test 
 @codestart
 // 1. query for .container
 // 2. add a method to the queue that repeatedly checks when .container is visible
-S(".container").visible();
+F(".container").visible();
 
 // 3. when the previous method completes, do a query for .foo
 // 4. click .foo
-S(".foo").click()
+F(".foo").click()
 @codeend
 
-### Why S?
+### Why F?
 
-S is a "copy" of $, created using [http://api.jquery.com/jQuery.sub/ jQuery.sub].  All FuncUnit methods, 
-like actions, waits, and traversers, are added to S.fn.  All the jQuery methods that FuncUnit doesn't 
+F is a "copy" of $, created using [http://api.jquery.com/jQuery.sub/ jQuery.sub].  All FuncUnit methods, 
+like actions, waits, and traversers, are added to F.fn.  All the jQuery methods that FuncUnit doesn't 
 overload are callable on S collections. 
 
 The reason for this is to preserve jQuery in the test page, unmodified.  If you want to use jQuery, none of 
@@ -148,31 +148,31 @@ custom things.
 
 @codestart
 // accessing elements within the test page
-ok($(".foo").hasClass("bar"))
+ok($(".foo").hasClasF("bar"))
 @codeend
 
-### Extending S
+### Extending F
 
-Occassionally there will be tests that need some jQuery plugins to run correctly.  To extend S 
+Occassionally there will be tests that need some jQuery plugins to run correctly.  To extend F 
 
 1. Load your jQuery plugin
-1. Add the plugin method to S.fn
+1. Add the plugin method to F.fn
 
 @codestart
 steal("funcunit", "resources/myplugin.js", function(){
-  S.fn.myplugin = $.fn.myplugin;
+  F.fn.myplugin = $.fn.myplugin;
   // test code goes here
 })
 @codeend 
 
-Most likely this method works synchronously so you have to use it inside a callback, where S is 
+Most likely this method works synchronously so you have to use it inside a callback, where F is 
 returning synchronously.
 
 @codestart
 // inside a wait callback, S returns a jQuery collection
-S(".foo").visible(function(){
+F(".foo").visible(function(){
   // call myplugin on jQuery collection
-  var els = S(".contact").myplugin()
+  var els = F(".contact").myplugin()
 })
 @codeend
 
@@ -188,7 +188,7 @@ modify it with their traversal, and pass the result to the next method in the qu
 
 @codestart
 // click .container, wait for width to be 500px
-S(".container").click().width(500)
+F(".container").click().width(500)
   // find .contact inside container, click it
   .find(".contact").click()
 @codeend

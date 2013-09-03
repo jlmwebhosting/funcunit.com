@@ -1,5 +1,5 @@
 @page funcunit.envjs EnvJS
-@parent guides
+@parent funcunit.integrations
 
 @body
 [http://www.envjs.com/ EnvJS] is a simulated browser environment. It can be used for running FuncUnit  
@@ -17,7 +17,7 @@ There is no installation step for EnvJS. It comes with JavaScriptMVC.
 test("unit test", function(){
   var a = new Animal();
   a.setAge(2);
-  equals(a.getAge(), 2, "age works");
+  equalF(a.getAge(), 2, "age works");
 })
 @codeend
 

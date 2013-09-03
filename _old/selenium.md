@@ -1,5 +1,5 @@
 @page funcunit.selenium Selenium
-@parent guides
+@parent funcunit.integrations
 
 @body
 [http://seleniumhq.org/ Selenium] is a browser automation tool. FuncUnit integrates with Selenium, 

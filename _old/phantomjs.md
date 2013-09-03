@@ -1,5 +1,5 @@
 @page funcunit.phantomjs PhantomJS
-@parent guides
+@parent funcunit.integrations
 
 @body
 [http://www.phantomjs.org/ PhantomJS] is a headless WebKit. FuncUnit integrates with Phantom to run 
@@ -75,7 +75,7 @@ Note that Phantom emulates mobile Webkit, so it provides support for touch event
 
 ### Iframe vs window.open
 
-In Rhino mode, calling S.open will open an iframe in the funcunit.html page, rather than a separate window via window.open. Phantom 1.3.0 doesn't support window.open, so a frame is used instead. This can occassionally cause problems if your application assumes it is running within window.top.
+In Rhino mode, calling F.open will open an iframe in the funcunit.html page, rather than a separate window via window.open. Phantom 1.3.0 doesn't support window.open, so a frame is used instead. This can occassionally cause problems if your application assumes it is running within window.top.
 
 In NodeJS mode we're running off latest Phantom 1.8.0 that does support window.open, so this isn't an issue.
 

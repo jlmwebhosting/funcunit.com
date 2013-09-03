@@ -38,10 +38,10 @@
 				<a class="brand funcunit" href="../index.html">FuncUnit</a>
 				<ul class="dropdown-menu">
 					<li><a href="http://javascriptmvc.com">JavaScriptMVC</a></li>
-					<li class="active"><a href="../index.html">CanJS</a></li>
+					<li><a href="http://canjs.com">CanJS</a></li>
 					<li><a href="http://jquerypp.com">jQuery++</a></li>
 					<li><a href="http://javascriptmvc.com/docs.html#!stealjs">StealJS</a></li>
-					<li><a href="http://funcunit.com/docs">FuncUnit</a></li>
+					<li class="active"><a href="../index.html">FuncUnit</a></li>
 					<li><a href="http://javascriptmvc.com/docs.html#!DocumentJS">DocumentJS</a></li>
 				</ul>
 			</div>
@@ -102,13 +102,6 @@
 	   </li>
 	
 	   <li class="search-container">
-	   		<a href="funcunit.envjs.html" data-search="EnvJS">
-				EnvJS
-			</a>
-			
-	   </li>
-	
-	   <li class="search-container">
 	   		<a href="funcunit.features.html" data-search="Features">
 				Features
 			</a>
@@ -132,41 +125,6 @@
 	   </li>
 	
 	   <li class="search-container">
-	   		<a href="funcunit.grunt.html" data-search="Grunt">
-				Grunt
-			</a>
-			
-	   </li>
-	
-	   <li class="search-container">
-	   		<a href="funcunit.integrations.html" data-search="Integrations">
-				Integrations
-			</a>
-			
-	   </li>
-	
-	   <li class="search-container">
-	   		<a href="funcunit.jenkins.html" data-search="Jenkins">
-				Jenkins
-			</a>
-			
-	   </li>
-	
-	   <li class="search-container">
-	   		<a href="funcunit.maven.html" data-search="Maven">
-				Maven
-			</a>
-			
-	   </li>
-	
-	   <li class="search-container">
-	   		<a href="funcunit.phantomjs.html" data-search="PhantomJS">
-				PhantomJS
-			</a>
-			
-	   </li>
-	
-	   <li class="search-container">
 	   		<a href="funcunit.remote.html" data-search="Targeting Remote Sites">
 				Targeting Remote Sites
 			</a>
@@ -174,15 +132,15 @@
 	   </li>
 	
 	   <li class="search-container">
-	   		<a href="funcunit.selenium.html" data-search="Selenium">
-				Selenium
+	   		<a href="funcunit.waits.html" data-search="Waits">
+				Waits
 			</a>
 			
 	   </li>
 	
 	   <li class="search-container">
-	   		<a href="funcunit.waits.html" data-search="Waits">
-				Waits
+	   		<a href="started.html" data-search="Getting Started Guide">
+				Getting Started Guide
 			</a>
 			
 	   </li>
@@ -197,7 +155,7 @@
 	</ul>
 	<ul class="links">
 		
-			<li><a href="">source</a></li>
+			<li><a href="https://github.com/bitovi/funcunit/tree/v3.3.0-rc1/finding.md">source</a></li>
 		
 		
 			
@@ -241,7 +199,7 @@ Finding Elements
 <p>S is a copy of the $ method.  It is used to find elements in the page you're testing.  It works 
 slightly differently than $.</p>
 
-<pre><code class="lang-javascript">S( selector, [context] )</code></pre>
+<pre><code class="lang-javascript">F( selector, [context] )</code></pre>
 
 <h3>Params</h3>
 
@@ -257,27 +215,27 @@ collection, or it may cache the selector, which will be used in the asynchronous
 when previous queued methods have finished.  Read more about this below.</p>
 
 <pre><code class="lang-javascript">// look up .foo elements in the application window
-S(".foo")</code></pre>
+F(".foo")</code></pre>
 
 <p><em>Function</em></p>
 
 <p>If a function is provided, it will be added to the queue to be run after previous queued methods.</p>
 
 <pre><code class="lang-javascript">// Wait for this to be visible
-S(".grid").visible()
+F(".grid").visible()
 
 // Run after the previous wait completes
-S(function(){
-    ok(S(".foo").hasClass('bar'))
+F(function(){
+    ok(F(".foo").hasClasF('bar'))
 })</code></pre>
 
 <p><em>Object</em></p>
 
-<p>If you want to reference the test page's window or document, pass <code>S.window</code> 
-or <code>S.window.document</code>.</p>
+<p>If you want to reference the test page's window or document, pass <code>F.window</code> 
+or <code>F.window.document</code>.</p>
 
 <pre><code class="lang-javascript">// click the test page's document element
-S(S.window.document).click()</code></pre>
+F(F.window.document).click()</code></pre>
 
 <p><strong>[context]</strong> <code>{Number|String}</code></p>
 
@@ -286,10 +244,10 @@ frame number or name in the document.frames array of the tested page.  The frame
 and this is passed as the context of the query.</p>
 
 <pre><code class="lang-javascript">// find something in the 0th frame
-S("a.mylink", 0)
+F("a.mylink", 0)
 
 // find something within the frame that has name="myframe"
-S("a.another, "myframe")</code></pre>
+F("a.another, "myframe")</code></pre>
 
 <h3>Synchronous vs asynchronous queries</h3>
 
@@ -305,9 +263,9 @@ runs after the queued method completes.</p>
 <p>Inside these callbacks, you get information about the page and perform assertions, synchronously. 
 Any time S is called inside a callback, it runs synchronously and returns a jQuery collection.</p>
 
-<pre><code class="lang-javascript">S(".foo").visible(function(){
+<pre><code class="lang-javascript">F(".foo").visible(function(){
   // this will run immediately and return a $ collection
-  var size = S(".bar").size();
+  var size = F(".bar").size();
   equal(size, 5);
 })</code></pre>
 
@@ -321,9 +279,9 @@ item is added to the queue, S will run synchronously.</p>
 
 <pre><code class="lang-javascript">test("contacts test", function(){
   // runs synchronously
-  var origNbrItems = S(".contacts").size();
-  S(".addNew").click(function(){
-    var newNbrItems = S(".contacts").size();
+  var origNbrItems = F(".contacts").size();
+  F(".addNew").click(function(){
+    var newNbrItems = F(".contacts").size();
     ok(newNbrItems > origNbrItems);
   });
 })</code></pre>
@@ -331,12 +289,12 @@ item is added to the queue, S will run synchronously.</p>
 <p>Beware that you MUST put any synchronous getters inside a callback or before any actions or waits.</p>
 
 <pre><code class="lang-javascript">test("contacts test", function(){
-  S(".addNew").click(function(){
-    var newNbrItems = S(".contacts").size();
+  F(".addNew").click(function(){
+    var newNbrItems = F(".contacts").size();
     ok(newNbrItems > origNbrItems);
   });
   // this will fail!  
-  var origNbrItems = S(".contacts").size();
+  var origNbrItems = F(".contacts").size();
 })</code></pre>
 
 <p><strong>Asynchronous</strong></p>
@@ -346,16 +304,16 @@ immediate query and returning a collection would be wasteful and slow down test 
 
 <pre><code class="lang-javascript">// 1. query for .container
 // 2. add a method to the queue that repeatedly checks when .container is visible
-S(".container").visible();
+F(".container").visible();
 
 // 3. when the previous method completes, do a query for .foo
 // 4. click .foo
-S(".foo").click()</code></pre>
+F(".foo").click()</code></pre>
 
-<h3>Why S?</h3>
+<h3>Why F?</h3>
 
-<p>S is a "copy" of $, created using <a href="http://api.jquery.com/jQuery.sub/">jQuery.sub</a>.  All FuncUnit methods, 
-like actions, waits, and traversers, are added to S.fn.  All the jQuery methods that FuncUnit doesn't 
+<p>F is a "copy" of $, created using <a href="http://api.jquery.com/jQuery.sub/">jQuery.sub</a>.  All FuncUnit methods, 
+like actions, waits, and traversers, are added to F.fn.  All the jQuery methods that FuncUnit doesn't 
 overload are callable on S collections. </p>
 
 <p>The reason for this is to preserve jQuery in the test page, unmodified.  If you want to use jQuery, none of 
@@ -363,29 +321,29 @@ its methods are modified. jQuery can be used to do unit testing, or to directly 
 custom things.</p>
 
 <pre><code class="lang-javascript">// accessing elements within the test page
-ok($(".foo").hasClass("bar"))</code></pre>
+ok($(".foo").hasClasF("bar"))</code></pre>
 
-<h3>Extending S</h3>
+<h3>Extending F</h3>
 
-<p>Occassionally there will be tests that need some jQuery plugins to run correctly.  To extend S </p>
+<p>Occassionally there will be tests that need some jQuery plugins to run correctly.  To extend F </p>
 
 <ol>
 <li>Load your jQuery plugin</li>
-<li>Add the plugin method to S.fn</li>
+<li>Add the plugin method to F.fn</li>
 </ol>
 
 <pre><code class="lang-javascript">steal("funcunit", "resources/myplugin.js", function(){
-  S.fn.myplugin = $.fn.myplugin;
+  F.fn.myplugin = $.fn.myplugin;
   // test code goes here
 })</code></pre>
 
-<p>Most likely this method works synchronously so you have to use it inside a callback, where S is 
+<p>Most likely this method works synchronously so you have to use it inside a callback, where F is 
 returning synchronously.</p>
 
 <pre><code class="lang-javascript">// inside a wait callback, S returns a jQuery collection
-S(".foo").visible(function(){
+F(".foo").visible(function(){
   // call myplugin on jQuery collection
-  var els = S(".contact").myplugin()
+  var els = F(".contact").myplugin()
 })</code></pre>
 
 <h2>Traversing</h2>
@@ -399,7 +357,7 @@ and [FuncUnit.prototype.first first].  The FuncUnit versions add themselves to
 modify it with their traversal, and pass the result to the next method in the queue.</p>
 
 <pre><code class="lang-javascript">// click .container, wait for width to be 500px
-S(".container").click().width(500)
+F(".container").click().width(500)
   // find .contact inside container, click it
   .find(".contact").click()</code></pre>
 		</section>

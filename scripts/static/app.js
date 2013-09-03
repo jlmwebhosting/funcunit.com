@@ -38,7 +38,6 @@ steal("jquery","can","can/construct/super").then("./lib/lib.js","./models/models
 	$(function() {
 		Bitovi.OSS.initTwitterWidgets();
 		initControls({
-			'.benefits': 'Benefits',
 			'.social': 'SocialStats',
 			'.cdn': 'CDNChooser',
 			'.communityTabs': 'CommunityTabs',

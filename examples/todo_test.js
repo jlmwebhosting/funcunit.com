@@ -1,19 +1,25 @@
-steal('funcunit', function() {
-	module('todomvc');
+/*
+If you're reading this source, there is an additional API option in the second parameter of F(). This is to denote frame.
 
-	test('basic todo functionality', function() {
-		F('#new-todo', 0).type('FuncUnit [enter]');
-		F('#new-todo', 0).type('is [enter]');
-		F('#new-todo', 0).type('awesome! [enter]');
+eg: F('#id') will look in the window, however F('#id', 0) will look in window.frames[0].
 
-		F('.toggle:not(:checked)', 0).click();
-		F('.toggle:not(:checked)', 0).click();
-		F('.toggle:not(:checked)', 0).click();
+This is not necessarily standard, however we're using an iframe on the demo page for style only.
+ */
 
-		//adding wait for dramatic effect
-		F.wait(1000, function() {
-			F('#clear-completed', 0).click();
-			F('.todo.completed', 0).missing();
-		});
+module('todomvc');
+
+test('basic todo functionality', function() {
+	F('#new-todo', 0).type('FuncUnit [enter]');
+	F('#new-todo', 0).type('is [enter]');
+	F('#new-todo', 0).type('awesome! [enter]');
+
+	F('.toggle:not(:checked)', 0).click();
+	F('.toggle:not(:checked)', 0).click();
+	F('.toggle:not(:checked)', 0).click();
+
+	//adding wait for dramatic effect
+	F.wait(1000, function() {
+		F('#clear-completed', 0).click();
+		F('.todo.completed', 0).missing();
 	});
 });

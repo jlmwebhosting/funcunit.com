@@ -1,5 +1,5 @@
 @page funcunit.maven Maven
-@parent guides
+@parent funcunit.integrations
 
 @body
 [http://maven.apache.org/ Maven] is a build tool, usually used for Java projects. FuncUnit can be 

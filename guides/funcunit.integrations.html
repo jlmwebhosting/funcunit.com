@@ -38,10 +38,10 @@
 				<a class="brand funcunit" href="../index.html">FuncUnit</a>
 				<ul class="dropdown-menu">
 					<li><a href="http://javascriptmvc.com">JavaScriptMVC</a></li>
-					<li class="active"><a href="../index.html">CanJS</a></li>
+					<li><a href="http://canjs.com">CanJS</a></li>
 					<li><a href="http://jquerypp.com">jQuery++</a></li>
 					<li><a href="http://javascriptmvc.com/docs.html#!stealjs">StealJS</a></li>
-					<li><a href="http://funcunit.com/docs">FuncUnit</a></li>
+					<li class="active"><a href="../index.html">FuncUnit</a></li>
 					<li><a href="http://javascriptmvc.com/docs.html#!DocumentJS">DocumentJS</a></li>
 				</ul>
 			</div>
@@ -102,13 +102,6 @@
 	   </li>
 	
 	   <li class="search-container">
-	   		<a href="funcunit.envjs.html" data-search="EnvJS">
-				EnvJS
-			</a>
-			
-	   </li>
-	
-	   <li class="search-container">
 	   		<a href="funcunit.features.html" data-search="Features">
 				Features
 			</a>
@@ -129,40 +122,31 @@
 			
 	   </li>
 	
-	   <li class="search-container">
-	   		<a href="funcunit.grunt.html" data-search="Grunt">
-				Grunt
-			</a>
-			
-	   </li>
-	
 	   <li class="search-container active">
 	   		<a href="funcunit.integrations.html" data-search="Integrations">
 				Integrations
 			</a>
 			
 				
+	<ul class="primary-grouping">
+		
 			
-	   </li>
-	
-	   <li class="search-container">
-	   		<a href="funcunit.jenkins.html" data-search="Jenkins">
-				Jenkins
-			</a>
+				
+				
+					<li class="search-container  ">
+						<a 	class="page" 
+							href="funcunit.envjs.html" 
+							data-search="EnvJS">
+							EnvJS
+						</a>
+						
+					</li>
+				
 			
-	   </li>
-	
-	   <li class="search-container">
-	   		<a href="funcunit.maven.html" data-search="Maven">
-				Maven
-			</a>
 			
-	   </li>
-	
-	   <li class="search-container">
-	   		<a href="funcunit.phantomjs.html" data-search="PhantomJS">
-				PhantomJS
-			</a>
+		
+	</ul>
+
 			
 	   </li>
 	
@@ -174,15 +158,15 @@
 	   </li>
 	
 	   <li class="search-container">
-	   		<a href="funcunit.selenium.html" data-search="Selenium">
-				Selenium
+	   		<a href="funcunit.waits.html" data-search="Waits">
+				Waits
 			</a>
 			
 	   </li>
 	
 	   <li class="search-container">
-	   		<a href="funcunit.waits.html" data-search="Waits">
-				Waits
+	   		<a href="started.html" data-search="Getting Started Guide">
+				Getting Started Guide
 			</a>
 			
 	   </li>
@@ -197,7 +181,7 @@
 	</ul>
 	<ul class="links">
 		
-			<li><a href="">source</a></li>
+			<li><a href="https://github.com/bitovi/funcunit/tree/v3.3.0-rc1/integrations.md">source</a></li>
 		
 		
 			
@@ -242,7 +226,7 @@ Integrations
 
 <p>To integrate FuncUnit tests with QA automation, FuncUnit tests can be launched by several methods.</p>
 
-<p><a href="funcunit.selenium.html">Selenium</a> launches visual browsers. It runs selenium tests and reports results to the 
+<p>[funcunit.selenium Selenium] launches visual browsers. It runs selenium tests and reports results to the 
 commandline.</p>
 
 <pre><code>./js funcunit/open/selenium path/to/funcunit.html
@@ -254,7 +238,7 @@ simulation, like clicking or dragging, but can be used for basic unit testing.</
 <pre><code>./js funcunit/open/envjs path/to/qunit.html
 </code></pre>
 
-<p><a href="funcunit.phantomjs.html">PhantomJS</a> is a headless version of WebKit. It supports runnning full FuncUnit tests 
+<p>[funcunit.phantomjs PhantomJS] is a headless version of WebKit. It supports runnning full FuncUnit tests 
 without actually launching a browser. It is faster than using Selenium to launch browsers.</p>
 
 <pre><code>./js funcunit/open/phantomjs path/to/funcunit.html
@@ -264,13 +248,13 @@ without actually launching a browser. It is faster than using Selenium to launch
 
 <p>Using browser automation tools, FuncUnit can be integrated into the project build.</p>
 
-<p><a href="funcunit.grunt.html">Grunt</a> is a task-based command line build tool for JavaScript projects. FuncUnit tests can be run 
+<p>[funcunit.grunt Grunt] is a task-based command line build tool for JavaScript projects. FuncUnit tests can be run 
 as a grunt build step. When tests fail, the build also fails.</p>
 
-<p><a href="funcunit.maven.html">Maven</a> is a build tool used with Java projects. FuncUnit tests can be run 
+<p>[funcunit.maven Maven] is a build tool used with Java projects. FuncUnit tests can be run 
 as a maven build step. When tests fail, the build also fails.</p>
 
-<p><a href="funcunit.jenkins.html">Jenkins</a> is a continuous integration tool, used to continuously run builds, tests, and 
+<p>[funcunit.jenkins Jenkins] is a continuous integration tool, used to continuously run builds, tests, and 
 report on the health of the codebase. FuncUnit can be tied into Jenkins and made to fail the Jenkins build 
 if FuncUnit tests aren't passing, which would alert developers of problems immediately. </p>
 

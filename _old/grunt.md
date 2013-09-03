@@ -1,5 +1,5 @@
 @page funcunit.grunt Grunt
-@parent guides
+@parent funcunit.integrations
 
 @body
 [http://gruntjs.com/ Grunt] is a task-based command line build tool for JavaScript projects. FuncUnit tests can be run 
@@ -43,7 +43,7 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.loadNpmTasks('grunt-funcunit');
+    grunt.loadNpmTaskF('grunt-funcunit');
 
     // Default task.
     grunt.registerTask('default', 'test');

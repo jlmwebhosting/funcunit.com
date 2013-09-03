@@ -38,10 +38,10 @@
 				<a class="brand funcunit" href="../index.html">FuncUnit</a>
 				<ul class="dropdown-menu">
 					<li><a href="http://javascriptmvc.com">JavaScriptMVC</a></li>
-					<li class="active"><a href="../index.html">CanJS</a></li>
+					<li><a href="http://canjs.com">CanJS</a></li>
 					<li><a href="http://jquerypp.com">jQuery++</a></li>
 					<li><a href="http://javascriptmvc.com/docs.html#!stealjs">StealJS</a></li>
-					<li><a href="http://funcunit.com/docs">FuncUnit</a></li>
+					<li class="active"><a href="../index.html">FuncUnit</a></li>
 					<li><a href="http://javascriptmvc.com/docs.html#!DocumentJS">DocumentJS</a></li>
 				</ul>
 			</div>
@@ -104,13 +104,6 @@
 	   </li>
 	
 	   <li class="search-container">
-	   		<a href="funcunit.envjs.html" data-search="EnvJS">
-				EnvJS
-			</a>
-			
-	   </li>
-	
-	   <li class="search-container">
 	   		<a href="funcunit.features.html" data-search="Features">
 				Features
 			</a>
@@ -132,41 +125,6 @@
 	   </li>
 	
 	   <li class="search-container">
-	   		<a href="funcunit.grunt.html" data-search="Grunt">
-				Grunt
-			</a>
-			
-	   </li>
-	
-	   <li class="search-container">
-	   		<a href="funcunit.integrations.html" data-search="Integrations">
-				Integrations
-			</a>
-			
-	   </li>
-	
-	   <li class="search-container">
-	   		<a href="funcunit.jenkins.html" data-search="Jenkins">
-				Jenkins
-			</a>
-			
-	   </li>
-	
-	   <li class="search-container">
-	   		<a href="funcunit.maven.html" data-search="Maven">
-				Maven
-			</a>
-			
-	   </li>
-	
-	   <li class="search-container">
-	   		<a href="funcunit.phantomjs.html" data-search="PhantomJS">
-				PhantomJS
-			</a>
-			
-	   </li>
-	
-	   <li class="search-container">
 	   		<a href="funcunit.remote.html" data-search="Targeting Remote Sites">
 				Targeting Remote Sites
 			</a>
@@ -174,15 +132,15 @@
 	   </li>
 	
 	   <li class="search-container">
-	   		<a href="funcunit.selenium.html" data-search="Selenium">
-				Selenium
+	   		<a href="funcunit.waits.html" data-search="Waits">
+				Waits
 			</a>
 			
 	   </li>
 	
 	   <li class="search-container">
-	   		<a href="funcunit.waits.html" data-search="Waits">
-				Waits
+	   		<a href="started.html" data-search="Getting Started Guide">
+				Getting Started Guide
 			</a>
 			
 	   </li>
@@ -197,7 +155,7 @@
 	</ul>
 	<ul class="links">
 		
-			<li><a href="">source</a></li>
+			<li><a href="https://github.com/bitovi/funcunit/tree/v3.3.0-rc1/demos.md">source</a></li>
 		
 		
 			
@@ -247,13 +205,13 @@ when using automation tools</p>
 
 <pre><code class="lang-javascript">test("login test", function () {
     if (/mode=commandline/.test(window.location.search)) {
-        S.open("/login")
-        S("#username").exists().click().type("superadmin")
-        S("#password").exists().click().type("password")
-        S(".submit input").exists().click()
+        F.open("/login")
+        F("#username").existF().click().type("superadmin")
+        F("#password").existF().click().type("password")
+        F(".submit input").existF().click()
 
         // wait for next page to load
-        S(".content").visible(function () {
+        F(".content").visible(function () {
             ok(true, "logged in");
         })
     } else {
@@ -295,7 +253,7 @@ quickly as possible.</p>
 
 <pre><code class="lang-javascript">module("Srchr",{
     setup: function() {
-        S.open("//srchr/srchr.html");
+        F.open("//srchr/srchr.html");
     }
 })
 
@@ -313,19 +271,19 @@ test("Smoke Test", function(){
 // \r means hit enter, which submits the form
 searchInput.click().type("puppy\r");
 resultElements.visible(function(){
-    equals(resultsElements.size(), 10, "There are 10 results");
+    equalF(resultsElements.size(), 10, "There are 10 results");
     ok(/puppy/.test( historyEl.text() ), "History has puppy");
 })</code></pre>
 
 <p>In this test, we're performing the search, waiting for results to appear, then asserting conditions of our page. 
 Here's the test with selectors filled in:</p>
 
-<pre><code class="lang-javascript"> S('#cb_flickr').click();
- S('#query').click().type('puppy\r');
+<pre><code class="lang-javascript"> F('#cb_flickr').click();
+ F('#query').click().type('puppy\r');
 
- S('#flickr li').visible(function(){
-      equals(S('#flickr li').size(), 10, 'There are 10 results')
-      ok( /puppy/.test( S('#history .text').text() ), 'History has puppy')
+ F('#flickr li').visible(function(){
+      equalF(F('#flickr li').size(), 10, 'There are 10 results')
+      ok( /puppy/.test( F('#history .text').text() ), 'History has puppy')
  })</code></pre>
 		</section>
 		

@@ -38,10 +38,10 @@
 				<a class="brand funcunit" href="../index.html">FuncUnit</a>
 				<ul class="dropdown-menu">
 					<li><a href="http://javascriptmvc.com">JavaScriptMVC</a></li>
-					<li class="active"><a href="../index.html">CanJS</a></li>
+					<li><a href="http://canjs.com">CanJS</a></li>
 					<li><a href="http://jquerypp.com">jQuery++</a></li>
 					<li><a href="http://javascriptmvc.com/docs.html#!stealjs">StealJS</a></li>
-					<li><a href="http://funcunit.com/docs">FuncUnit</a></li>
+					<li class="active"><a href="../index.html">FuncUnit</a></li>
 					<li><a href="http://javascriptmvc.com/docs.html#!DocumentJS">DocumentJS</a></li>
 				</ul>
 			</div>
@@ -102,13 +102,6 @@
 	   </li>
 	
 	   <li class="search-container">
-	   		<a href="funcunit.envjs.html" data-search="EnvJS">
-				EnvJS
-			</a>
-			
-	   </li>
-	
-	   <li class="search-container">
 	   		<a href="funcunit.features.html" data-search="Features">
 				Features
 			</a>
@@ -130,50 +123,8 @@
 	   </li>
 	
 	   <li class="search-container">
-	   		<a href="funcunit.grunt.html" data-search="Grunt">
-				Grunt
-			</a>
-			
-	   </li>
-	
-	   <li class="search-container">
-	   		<a href="funcunit.integrations.html" data-search="Integrations">
-				Integrations
-			</a>
-			
-	   </li>
-	
-	   <li class="search-container">
-	   		<a href="funcunit.jenkins.html" data-search="Jenkins">
-				Jenkins
-			</a>
-			
-	   </li>
-	
-	   <li class="search-container">
-	   		<a href="funcunit.maven.html" data-search="Maven">
-				Maven
-			</a>
-			
-	   </li>
-	
-	   <li class="search-container">
-	   		<a href="funcunit.phantomjs.html" data-search="PhantomJS">
-				PhantomJS
-			</a>
-			
-	   </li>
-	
-	   <li class="search-container">
 	   		<a href="funcunit.remote.html" data-search="Targeting Remote Sites">
 				Targeting Remote Sites
-			</a>
-			
-	   </li>
-	
-	   <li class="search-container">
-	   		<a href="funcunit.selenium.html" data-search="Selenium">
-				Selenium
 			</a>
 			
 	   </li>
@@ -187,6 +138,13 @@
 			
 	   </li>
 	
+	   <li class="search-container">
+	   		<a href="started.html" data-search="Getting Started Guide">
+				Getting Started Guide
+			</a>
+			
+	   </li>
+	
 </ul>
 	</nav>
 	<article class="content docs">
@@ -197,7 +155,7 @@
 	</ul>
 	<ul class="links">
 		
-			<li><a href="">source</a></li>
+			<li><a href="https://github.com/bitovi/funcunit/tree/v3.3.0-rc1/waits.md">source</a></li>
 		
 		
 			
@@ -269,13 +227,13 @@ getters depending on arguments.</p>
 </ul>
 
 <pre><code class="lang-javascript">// wait until there are 5 .foo elements
-S(".foo").size(5)
+F(".foo").size(5)
 
 // wait until .container has 500px height
-S(".container").height(500)
+F(".container").height(500)
 
 // wait until .banner's text is "Done"
-S(".banner").text("Done")</code></pre>
+F(".banner").text("Done")</code></pre>
 
 <h3>Two argument waits</h3>
 
@@ -290,13 +248,13 @@ S(".banner").text("Done")</code></pre>
 </ul>
 
 <pre><code class="lang-javascript">// wait until $.data for .foo on the key "count" has 2
-S(".foo").data("count", 2)
+F(".foo").data("count", 2)
 
 // wait until .contact has class "bar"
-S(".contact").hasClass("bar", true)
+F(".contact").hasClasF("bar", true)
 
 // wait until .container has font-color red
-S(".container").css("font-color", "red")</code></pre>
+F(".container").csF("font-color", "red")</code></pre>
 
 <h3>Zero argument waits</h3>
 
@@ -312,7 +270,7 @@ S(".container").css("font-color", "red")</code></pre>
 </ul>
 
 <pre><code class="lang-javascript">// wait until the .foo element is removed
-S(".foo").missing();</code></pre>
+F(".foo").missing();</code></pre>
 
 <h2>Tester function</h2>
 
@@ -320,10 +278,10 @@ S(".foo").missing();</code></pre>
 method's arguments are whatever the wait normally accepts.  It returns true when the condition is met, 
 after which the next wait or action begins.</p>
 
-<pre><code class="lang-javascript">var initialWidth = S("#sliderMenu").width();
+<pre><code class="lang-javascript">var initialWidth = F("#sliderMenu").width();
 
 // wait until width is at least 200px
-S("#sliderMenu").width(function( width ) {
+F("#sliderMenu").width(function( width ) {
   return width >= 200;
 })</code></pre>
 
@@ -350,7 +308,7 @@ provided.</p>
 <p>Inside a callback is the place to get information about a page and perform assertions. Callbacks are 
 also useful for debugging.</p>
 
-<pre><code class="lang-javascript">S(".foo").text("bar", function(){
+<pre><code class="lang-javascript">F(".foo").text("bar", function(){
   // runs after wait condition completes
 })</code></pre>
 
@@ -360,7 +318,7 @@ also useful for debugging.</p>
 If a user provides a message string, the wait condition will pass an assertion with the given message when the wait completes.  If the wait fails 
 (the timeout is reached), this message will be provided to the failed assertion.</p>
 
-<pre><code class="lang-javascript">S(".foo").text("bar", "the foo element has text bar")</code></pre>
+<pre><code class="lang-javascript">F(".foo").text("bar", "the foo element has text bar")</code></pre>
 		</section>
 		
 

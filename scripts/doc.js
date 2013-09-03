@@ -30,6 +30,27 @@ steal("documentjs", "steal/rhino/json.js", function (DocumentJS) {
 		return "FuncUnit"
 	}
 
+	var pkg = JSON.parse(readFile('./funcunit/package.json'));
+
+	DocumentJS('scripts/doc.html',{
+		"markdown": ['funcunit'],
+		"out": "docs",
+		"root": "..",
+		"package": pkg,
+		"parent": "FuncUnit",
+		"static" : "scripts/static",
+		"templates": "scripts/templates",
+		statics: {
+			src: "_pages"
+		},
+		helpers: function(data, config, getCurrent, oldHelpers){
+			return {
+				documentTitle: documentTitle
+			}
+		}
+		
+	});
+
 	DocumentJS('_guides',{
 		"markdown": [ '_guides'],
 		"out": "guides",
@@ -43,24 +64,6 @@ steal("documentjs", "steal/rhino/json.js", function (DocumentJS) {
 				documentTitle: documentTitle
 			}
 		}
-	});
-
-	DocumentJS('scripts/doc.html',{
-		"markdown": ['funcunit'],
-		"out": "docs",
-		"root": "..",
-		"parent": "FuncUnit",
-		"static" : "scripts/static",
-		"templates": "scripts/templates",
-		statics: {
-			src: "_pages"
-		},
-		helpers: function(data, config, getCurrent, oldHelpers){
-			return {
-				documentTitle: documentTitle
-			}
-		}
-		
 	});
 
 });

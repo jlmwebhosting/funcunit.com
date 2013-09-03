@@ -34,13 +34,13 @@ Most wait commands only require a single argument.
 
 @codestart
 // wait until there are 5 .foo elements
-S(".foo").size(5)
+F(".foo").size(5)
 
 // wait until .container has 500px height
-S(".container").height(500)
+F(".container").height(500)
 
 // wait until .banner's text is "Done"
-S(".banner").text("Done")
+F(".banner").text("Done")
 @codeend
 
 ### Two argument waits
@@ -55,13 +55,13 @@ Some jQuery methods accept 2 parameters.  Similarly, those wait methods accept t
 
 @codestart
 // wait until $.data for .foo on the key "count" has 2
-S(".foo").data("count", 2)
+F(".foo").data("count", 2)
 
 // wait until .contact has class "bar"
-S(".contact").hasClass("bar", true)
+F(".contact").hasClasF("bar", true)
 
 // wait until .container has font-color red
-S(".container").css("font-color", "red")
+F(".container").csF("font-color", "red")
 @codeend
 
 ### Zero argument waits
@@ -77,7 +77,7 @@ Several wait methods check for existence/visibility of elements. These require z
 
 @codestart
 // wait until the .foo element is removed
-S(".foo").missing();
+F(".foo").missing();
 @codeend
 
 ## Tester function
@@ -87,10 +87,10 @@ method's arguments are whatever the wait normally accepts.  It returns true when
 after which the next wait or action begins.
 
 @codestart
-var initialWidth = S("#sliderMenu").width();
+var initialWidth = F("#sliderMenu").width();
 
 // wait until width is at least 200px
-S("#sliderMenu").width(function( width ) {
+F("#sliderMenu").width(function( width ) {
   return width >= 200;
 })
 @codeend  
@@ -121,7 +121,7 @@ Inside a callback is the place to get information about a page and perform asser
 also useful for debugging.
 
 @codestart
-S(".foo").text("bar", function(){
+F(".foo").text("bar", function(){
   // runs after wait condition completes
 })
 @codeend
@@ -133,5 +133,5 @@ If a user provides a message string, the wait condition will pass an assertion w
 (the timeout is reached), this message will be provided to the failed assertion.
 
 @codestart
-S(".foo").text("bar", "the foo element has text bar")
+F(".foo").text("bar", "the foo element has text bar")
 @codeend

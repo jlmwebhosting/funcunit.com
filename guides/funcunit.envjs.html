@@ -38,10 +38,10 @@
 				<a class="brand funcunit" href="../index.html">FuncUnit</a>
 				<ul class="dropdown-menu">
 					<li><a href="http://javascriptmvc.com">JavaScriptMVC</a></li>
-					<li class="active"><a href="../index.html">CanJS</a></li>
+					<li><a href="http://canjs.com">CanJS</a></li>
 					<li><a href="http://jquerypp.com">jQuery++</a></li>
 					<li><a href="http://javascriptmvc.com/docs.html#!stealjs">StealJS</a></li>
-					<li><a href="http://funcunit.com/docs">FuncUnit</a></li>
+					<li class="active"><a href="../index.html">FuncUnit</a></li>
 					<li><a href="http://javascriptmvc.com/docs.html#!DocumentJS">DocumentJS</a></li>
 				</ul>
 			</div>
@@ -101,15 +101,6 @@
 			
 	   </li>
 	
-	   <li class="search-container active">
-	   		<a href="funcunit.envjs.html" data-search="EnvJS">
-				EnvJS
-			</a>
-			
-				
-			
-	   </li>
-	
 	   <li class="search-container">
 	   		<a href="funcunit.features.html" data-search="Features">
 				Features
@@ -131,38 +122,33 @@
 			
 	   </li>
 	
-	   <li class="search-container">
-	   		<a href="funcunit.grunt.html" data-search="Grunt">
-				Grunt
-			</a>
-			
-	   </li>
-	
-	   <li class="search-container">
+	   <li class="search-container active">
 	   		<a href="funcunit.integrations.html" data-search="Integrations">
 				Integrations
 			</a>
 			
-	   </li>
-	
-	   <li class="search-container">
-	   		<a href="funcunit.jenkins.html" data-search="Jenkins">
-				Jenkins
-			</a>
+				
+	<ul class="primary-grouping">
+		
 			
-	   </li>
-	
-	   <li class="search-container">
-	   		<a href="funcunit.maven.html" data-search="Maven">
-				Maven
-			</a>
+				
+				
+					<li class="search-container active  expanded">
+						<a 	class="page" 
+							href="funcunit.envjs.html" 
+							data-search="EnvJS">
+							EnvJS
+						</a>
+						
+							
+						
+					</li>
+				
 			
-	   </li>
-	
-	   <li class="search-container">
-	   		<a href="funcunit.phantomjs.html" data-search="PhantomJS">
-				PhantomJS
-			</a>
+			
+		
+	</ul>
+
 			
 	   </li>
 	
@@ -174,15 +160,15 @@
 	   </li>
 	
 	   <li class="search-container">
-	   		<a href="funcunit.selenium.html" data-search="Selenium">
-				Selenium
+	   		<a href="funcunit.waits.html" data-search="Waits">
+				Waits
 			</a>
 			
 	   </li>
 	
 	   <li class="search-container">
-	   		<a href="funcunit.waits.html" data-search="Waits">
-				Waits
+	   		<a href="started.html" data-search="Getting Started Guide">
+				Getting Started Guide
 			</a>
 			
 	   </li>
@@ -197,7 +183,7 @@
 	</ul>
 	<ul class="links">
 		
-			<li><a href="">source</a></li>
+			<li><a href="https://github.com/bitovi/funcunit/tree/v3.3.0-rc1/envjs.md">source</a></li>
 		
 		
 			
@@ -252,7 +238,7 @@ simulation.</p>
 <pre><code class="lang-javascript">test("unit test", function(){
   var a = new Animal();
   a.setAge(2);
-  equals(a.getAge(), 2, "age works");
+  equalF(a.getAge(), 2, "age works");
 })</code></pre>
 
 <pre><code class="lang-javascript">./js funcunit/open/envjs path/to/qunit.html</code></pre>

@@ -38,10 +38,10 @@
 				<a class="brand funcunit" href="../index.html">FuncUnit</a>
 				<ul class="dropdown-menu">
 					<li><a href="http://javascriptmvc.com">JavaScriptMVC</a></li>
-					<li class="active"><a href="../index.html">CanJS</a></li>
+					<li><a href="http://canjs.com">CanJS</a></li>
 					<li><a href="http://jquerypp.com">jQuery++</a></li>
 					<li><a href="http://javascriptmvc.com/docs.html#!stealjs">StealJS</a></li>
-					<li><a href="http://funcunit.com/docs">FuncUnit</a></li>
+					<li class="active"><a href="../index.html">FuncUnit</a></li>
 					<li><a href="http://javascriptmvc.com/docs.html#!DocumentJS">DocumentJS</a></li>
 				</ul>
 			</div>
@@ -101,13 +101,6 @@
 			
 	   </li>
 	
-	   <li class="search-container">
-	   		<a href="funcunit.envjs.html" data-search="EnvJS">
-				EnvJS
-			</a>
-			
-	   </li>
-	
 	   <li class="search-container active">
 	   		<a href="funcunit.features.html" data-search="Features">
 				Features
@@ -132,41 +125,6 @@
 	   </li>
 	
 	   <li class="search-container">
-	   		<a href="funcunit.grunt.html" data-search="Grunt">
-				Grunt
-			</a>
-			
-	   </li>
-	
-	   <li class="search-container">
-	   		<a href="funcunit.integrations.html" data-search="Integrations">
-				Integrations
-			</a>
-			
-	   </li>
-	
-	   <li class="search-container">
-	   		<a href="funcunit.jenkins.html" data-search="Jenkins">
-				Jenkins
-			</a>
-			
-	   </li>
-	
-	   <li class="search-container">
-	   		<a href="funcunit.maven.html" data-search="Maven">
-				Maven
-			</a>
-			
-	   </li>
-	
-	   <li class="search-container">
-	   		<a href="funcunit.phantomjs.html" data-search="PhantomJS">
-				PhantomJS
-			</a>
-			
-	   </li>
-	
-	   <li class="search-container">
 	   		<a href="funcunit.remote.html" data-search="Targeting Remote Sites">
 				Targeting Remote Sites
 			</a>
@@ -174,15 +132,15 @@
 	   </li>
 	
 	   <li class="search-container">
-	   		<a href="funcunit.selenium.html" data-search="Selenium">
-				Selenium
+	   		<a href="funcunit.waits.html" data-search="Waits">
+				Waits
 			</a>
 			
 	   </li>
 	
 	   <li class="search-container">
-	   		<a href="funcunit.waits.html" data-search="Waits">
-				Waits
+	   		<a href="started.html" data-search="Getting Started Guide">
+				Getting Started Guide
 			</a>
 			
 	   </li>
@@ -197,7 +155,7 @@
 	</ul>
 	<ul class="links">
 		
-			<li><a href="">source</a></li>
+			<li><a href="https://github.com/bitovi/funcunit/tree/v3.3.0-rc1/features.md">source</a></li>
 		
 		
 			
@@ -263,76 +221,21 @@ test case.</li>
 
 <p>There are many testing frameworks out there, but nothing comes close to being a complete solution for front end testing like FuncUnit does.</p>
 
-<h2>Changes from 3.1</h2>
+<h2>Changes from 3.2</h2>
 
-<p>FuncUnit has undergone some big changes from JavaScriptMVC 3.1.</p>
+<p>FuncUnit has undergone some big changes from JavaScriptMVC 3.2.</p>
 
-<h3>Commandline revamp</h3>
+<h3>Core project refactor</h3>
 
-<p>The method of running from commandline is now more consistent. You configure reporting and settings the same 
-way in settings.js.  Env, Phantom, and Selenium work in the same way.</p>
+<p>Since the development of <a href="http://github.com/bitovi/testee.js">Testee.js</a>, we've refactored the "runner" bits out of FuncUnit. You can now consider FuncUnit the sugar on top of your existing QUnit or Jasmine setup.</p>
 
-<h3>Steal.browsers</h3>
+<h3>Jasmine support</h3>
 
-<p>The new steal.browser API is a layer that abstracts opening a browser using a browser automation tool and 
-makes it easy to add new ones.  PhantomJS was a new browser added with this API. Steal.browser can be used in 
-other parts of JavaScriptMVC, like steal/html.</p>
-
-<h3>No more separate browser drivers</h3>
-
-<p>There used to be separate browser drivers for running in browser and selenium. Now there is only one way of 
-using the FuncUnit API, which brings consistency no matter the environments.</p>
-
-<p>The driver system created difficult to debug issues when running from Selenium, which would not occur in 
-browser mode. Without drivers, tests run more consistently.</p>
-
-<p>Also, implementing features in both drivers was difficult and required a complex build step. Adding 
-to the FuncUnit API is now simpler and faster.</p>
-
-<h3>CI integration</h3>
-
-<p>Integration with Jenkins and Maven are part of the 3.2 changes. Using the XUnit plugin and passing error 
-codes, you can more easily build FuncUnit into your build and CI system.</p>
-
-<p>Its also possible to easily customize FuncUnit output by making your own reporting functionality. All you have 
-to do is add your own FuncUnit event handlers.</p>
-
-<h3>Passing around collections</h3>
-
-<p>FuncUnit's internals are reworked so that S is now a subbed version of jQuery.  S calls $ with the context 
-set to your app window. "this" always points to current collection, whereas before it wasn't possible to access 
-the actual collection, just the selector.</p>
-
-<p>This has several advantages. Its easier to add plugins to S.  Its also easier to get information about 
-the elements, using any jQuery.fn method.  Debugging is easier, because there is more visibility while 
-executing asynchronous callbacks.  You can inspect at various points and see why the test is failing</p>
-
-<h3>No breaking changes</h3>
-
-<p>We were very careful while making these changes to not break the API.  Any existing tests will still 
-work, but will be less brittle when using Selenium and other automation tools.</p>
-
-<p>** There is actually one minor difference, which most users won't ever notice. It used to be that you could 
-"cache" S objects and reuse them within callbacks.  The query they represented would be re-run.  In 3.2+ FuncUnit, 
-this is no longer the case.  Since S objects are just jQuery collections, synchronous queries need to be rerun by 
-calling S again.</p>
+<p>FuncUnit is now completely compatible with Jasmine runners. No need to migrate to QUnit if you're already setup!</p>
 
 <h3>Updated to latest QUnit</h3>
 
 <p>The latest version of QUnit has a few nice features and an updated UI.</p>
-
-<h3>PhantomJS</h3>
-
-<p>PhantomJS support now makes it more feasible to run FuncUnit tests as part of a build process.</p>
-
-<h2>Roadmap</h2>
-
-<p>The next FuncUnit features we plan to work on include. Let us know if you want these features or want to help!</p>
-
-<ul>
-<li><a href="http://siliconforks.com/jscoverage/">JSCoverage</a> integration for test coverage stats</li>
-<li><a href="http://code.google.com/p/js-test-driver/">JSTestDriver</a> integration</li>
-</ul>
 		</section>
 		
 

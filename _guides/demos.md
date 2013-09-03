@@ -14,13 +14,13 @@ when using automation tools
 @codestart
 test("login test", function () {
 	if (/mode=commandline/.test(window.location.search)) {
-		S.open("/login")
-		S("#username").exists().click().type("superadmin")
-		S("#password").exists().click().type("password")
-		S(".submit input").exists().click()
+		F.open("/login")
+		F("#username").existF().click().type("superadmin")
+		F("#password").existF().click().type("password")
+		F(".submit input").existF().click()
 		
 		// wait for next page to load
-		S(".content").visible(function () {
+		F(".content").visible(function () {
 			ok(true, "logged in");
 		})
 	} else {
@@ -64,7 +64,7 @@ Let's start by creating a skeleton test with some pseudocode:
 @codestart
 module("Srchr",{
 	setup: function() {
-		S.open("//srchr/srchr.html");
+		F.open("//srchr/srchr.html");
 	}
 })
 
@@ -84,7 +84,7 @@ flickrInput.click();
 // \r means hit enter, which submits the form
 searchInput.click().type("puppy\r");
 resultElements.visible(function(){
-	equals(resultsElements.size(), 10, "There are 10 results");
+	equalF(resultsElements.size(), 10, "There are 10 results");
 	ok(/puppy/.test( historyEl.text() ), "History has puppy");
 })
 @codeend
@@ -93,11 +93,11 @@ In this test, we're performing the search, waiting for results to appear, then a
 Here's the test with selectors filled in:
 
 @codestart
- S('#cb_flickr').click();
- S('#query').click().type('puppy\r');
+ F('#cb_flickr').click();
+ F('#query').click().type('puppy\r');
  
- S('#flickr li').visible(function(){
-      equals(S('#flickr li').size(), 10, 'There are 10 results')
-      ok( /puppy/.test( S('#history .text').text() ), 'History has puppy')
+ F('#flickr li').visible(function(){
+      equalF(F('#flickr li').size(), 10, 'There are 10 results')
+      ok( /puppy/.test( F('#history .text').text() ), 'History has puppy')
  })
 @codeend

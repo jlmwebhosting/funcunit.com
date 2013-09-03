@@ -4,7 +4,7 @@
 		<div id="hero-download" class="pull-right">
 			<h1>Test your apps, not your patience</h1>
 
-			<a href="https://github.com/bitovi/funcunit/tarball/master">
+			<a href="https://github.com/bitovi/funcunit.js/tree/v{{package.version}}/dist/funcunit.js">
 				<button class="download">Download {{package.version}}<span>(One file. Everything you need.)</span></button>
 			</a>
 		</div>
@@ -53,18 +53,18 @@
 module('todomvc');
 
 test('basic todo functionality', function() {
-	F('#new-todo', 0).type('FuncUnit [enter]');
-	F('#new-todo', 0).type('is [enter]');
-	F('#new-todo', 0).type('awesome! [enter]');
+	F('#new-todo').type('FuncUnit [enter]');
+	F('#new-todo').type('is [enter]');
+	F('#new-todo').type('awesome! [enter]');
 
-	F('.toggle:not(:checked)', 0).click();
-	F('.toggle:not(:checked)', 0).click();
-	F('.toggle:not(:checked)', 0).click();
+	F('.toggle:not(:checked)').click();
+	F('.toggle:not(:checked)').click();
+	F('.toggle:not(:checked)').click();
 
 	//adding wait for dramatic effect
 	F.wait(1000, function() {
-		F('#clear-completed', 0).click();
-		F('.todo.completed', 0).missing();
+		F('#clear-completed').click();
+		F('.todo.completed').missing();
 	});
 });
 		</pre>

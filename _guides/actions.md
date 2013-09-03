@@ -19,9 +19,9 @@ Actions run asynchronously, meaning they do not complete all their events immedi
 However, each action is queued so that you can write actions (and waits) linearly.
 
 @codestart
-S('textarea').click().type("Hello World");
+F('textarea').click().type("Hello World");
   
-S('.resizer').drag("+20 +20");
+F('.resizer').drag("+20 +20");
 @codeend
 
 ## Common mistake
@@ -30,7 +30,7 @@ Almost always before performing an action, you should perform a wait that makes 
 element you're operating on is ready.  A common pattern is calling visible before most actions.
 
 @codestart
-S(".foo").visible().click()
+F(".foo").visible().click()
 @codeend
 
 Without waits, tests may intermittently fail because of timing conditions. When click runs, it immediately 

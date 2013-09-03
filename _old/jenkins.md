@@ -1,5 +1,5 @@
 @page funcunit.jenkins Jenkins
-@parent guides
+@parent funcunit.integrations
 
 @body
 [http://jenkins-ci.org/ Jenkins] is a continuous integration tool. It is used to run builds and 

@@ -14,9 +14,9 @@ on it, like [http://api.jquery.com/text/ text], [http://api.jquery.com/val/ val]
 as a getter.
 
 @codestart
-S(".foo").visible(function(){
+F(".foo").visible(function(){
   // perform getters inside wait callbacks
-  var size = S(".bar").size();
+  var size = F(".bar").size();
 })
 @codeend
 
@@ -31,9 +31,9 @@ To perform assertions, use QUnit assertion methods.
 - [http://docs.jquery.com/QUnit/deepEqual#actualexpectedmessage deepEqual]
 
 @codestart
-S(".foo").visible(function(){
+F(".foo").visible(function(){
   // perform assertions inside wait callbacks
-  var size = S(".bar").size();
+  var size = F(".bar").size();
   ok(size, 5, "there are 5 bars);
 })
 @codeend
@@ -48,9 +48,9 @@ without any assertions.  If it fails, it will throw a failed assertion.
 
 @codestart
 test("test with waits", function(){
-  S(".foo").click();
+  F(".foo").click();
   // if this wait condition never becomes true, test will fail
-  S(".bar").visible();
+  F(".bar").visible();
 })
 @codeend
 
@@ -58,7 +58,7 @@ Often, writing a test with assertions adds more unnecessary code.
 
 @codestart
 test("with assertions", function(){
-  S(".expander").click()
+  F(".expander").click()
     .width(500, function(){
       // if the wait condition isn't met, this assertion won't run
       // therefore, this assertion isn't necessary

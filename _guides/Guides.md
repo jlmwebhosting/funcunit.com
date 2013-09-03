@@ -1,4 +1,4 @@
 @page guides Guides
 
 @body
-This page contains recipes and tutorials that will get you started with building CanJS projects. Choose a section on the left to learn more about the components that make CanJS work and to see CanJS being used in real projects. If you're new to CanJS, a good starting point is [Why Why CanJS?]
+This page contains tutorials that will get you started with FuncUnit. Choose a section on the left to learn more about the components FuncUnit can utilize. If you're new to FuncUnit, a good starting point is the [started Getting Started Guide].
