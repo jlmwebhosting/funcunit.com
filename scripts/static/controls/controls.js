@@ -14,4 +14,5 @@ steal("./downloadCustomizer.js").then(
 	"./menu.js",
 	"./pluginsTab.js",
 	"./socialStats.js",
-	"./twitterTab.js")
+	"./twitterTab.js",
+	"./runner.js")

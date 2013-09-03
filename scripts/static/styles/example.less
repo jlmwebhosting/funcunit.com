@@ -1,10 +1,26 @@
 .example {
 	position: relative;
-	margin-top: 20px;
+	margin-top: 10px;
 	clear: both;
 
 	h2 {
 		text-transform: uppercase;
+	}
+
+	.runner {
+		background-color: @action;
+		border-color: darken(@action, 10%);
+		border-width: 1px;
+		text-transform: uppercase;
+		margin-right: 7px;
+		font-size: 12px;
+		float: right;
+		color: #fff;
+		line-height: 18px;
+		display: inline-block;
+		&:hover {
+			background-color: darken(@action, 10%);
+		}
 	}
 }
 
@@ -15,7 +31,7 @@
 	width: 330px;
 	.border-radius(@borderRadius);
 	border: 1px solid #797979;
-	margin-top: 20px;
+	margin-top: 10px;
 	margin-bottom: 40px;
 	cursor: default;
 }
@@ -38,7 +54,7 @@
 
 .example > .result {
 	width: 580px;
-	height: 550px;
+	height: 524px;
 	background-color: #ffffff;
 }
 

@@ -22,10 +22,15 @@
 			<ol id="qunit-tests"></ol>
 			<div id="qunit-test-area"></div>
 		</div>
-		<script type='text/javascript' src='../lib/jquery/jquery.js'></script>
-		<script type='text/javascript' src='../lib/qunit/qunit/qunit.js'></script>
-		<script type='text/javascript' src='../funcunit/dist/funcunit.js'></script>
-		<script type='text/javascript' src='todo_test.js'></script>
+		<script src='../lib/jquery/jquery.js'></script>
+		<script src='../lib/qunit/qunit/qunit.js'></script>
+
+		<script type="text/javascript">
+			QUnit.config.autostart = false;
+		</script>
+
+		<script src='../funcunit/dist/funcunit.js'></script>
+		<script src='todo_test.js'></script>
 		<iframe src="todo/index.html" name="todo"></iframe>
 	</body>
 </html>
