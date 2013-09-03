@@ -1,12 +1,12 @@
 [submodule "steal"]
 	path = steal
-	url = git@github.com:bitovi/steal
+	url = https://github.com/bitovi/steal
 [submodule "can"]
 	path = can
-	url = git@github.com:bitovi/canjs
+	url = https://github.com/bitovi/canjs
 [submodule "documentjs"]
 	path = documentjs
-	url = git@github.com:bitovi/documentjs
+	url = https://github.com/bitovi/documentjs
 [submodule "funcunit"]
 	path = funcunit
-	url = git@github.com:bitovi/funcunit.js
+	url = https://github.com/bitovi/funcunit.js
