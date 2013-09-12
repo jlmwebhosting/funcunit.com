@@ -1,5 +1,5 @@
 @page funcunit.features Features
-@parent guides
+@parent guides 4
 
 @body
 ## Why FuncUnit

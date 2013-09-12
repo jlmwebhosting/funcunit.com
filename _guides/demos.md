@@ -1,5 +1,5 @@
 @page funcunit.demos Demos
-@parent guides
+@parent guides 3
 
 @body
 This page contains examples of tests that solve common problems.

@@ -1,5 +1,5 @@
-@page started Getting Started Guide
-@parent guides
+@page started Getting Started
+@parent guides 0
 
 @body
 

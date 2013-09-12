@@ -1,5 +1,5 @@
 @page funcunit.actions Actions
-@parent guides
+@parent guides 1
 
 @body
 Actions are used to simulate user behavior such as clicking, typing, moving the mouse.

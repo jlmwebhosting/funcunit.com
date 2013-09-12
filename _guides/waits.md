@@ -1,5 +1,5 @@
 @page funcunit.waits Waits
-@parent guides
+@parent guides 7
 
 @body
 Wait commands are used to check conditions of your page. The test checks a condition repeatedly 

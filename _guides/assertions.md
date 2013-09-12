@@ -1,5 +1,5 @@
 @page funcunit.getters Getters & Assertions
-@parent guides
+@parent guides 2
 
 @body
 Getter commands are jQuery getter methods. At certain points throughout a test, it's necessary
