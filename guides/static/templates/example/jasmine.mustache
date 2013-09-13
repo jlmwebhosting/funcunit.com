@@ -1,0 +1,21 @@
+<pre class="code prettyprint lang-js" style="overflow: hidden;">
+module('todomvc');
+
+test('basic todo functionality', function() {
+	F('#new-todo').type('FuncUnit [enter]');
+	F('#new-todo').type('is [enter]');
+	F('#new-todo').type('awesome! [enter]');
+
+	F('.toggle:not(:checked)').click();
+	F('.toggle:not(:checked)').click();
+	F('.toggle:not(:checked)').click();
+
+	//adding wait for dramatic effect
+	F.wait(1000, function() {
+		F('#clear-completed').click();
+		F('.todo.completed').missing();
+	});
+});
+</pre>
+
+<iframe class="result" src="examples/todo_jasmine.html?init"></iframe>

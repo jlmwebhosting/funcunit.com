@@ -44,9 +44,7 @@ steal("jquery","can","can/construct/super").then("./lib/lib.js","./models/models
 			'.sidebar': 'Menu'
 		});
 
-		new Bitovi.OSS.Runner('.runner', {
-			frame: $('.result')[0]
-		});
+		new Bitovi.OSS.Example('.container.example', {});
 
 		// Syntax highlighting
 		$('pre code').each(function() {

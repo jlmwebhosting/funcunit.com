@@ -72,7 +72,7 @@
 	<div class="container">
 		<span class="hero-background icon-hero-funcunit"></span>
 		<div id="hero-download" class="pull-right">
-			<h1>Test your apps, not your patience</h1>
+			<h1>Write better tests, faster.</h1>
 
 			<a href="https://raw.github.com/bitovi/funcunit.js/v2.0.0-rc1/dist/funcunit.js">
 				<button class="download">Download 2.0.0-rc1<span>(One file. Everything you need.)</span></button>
@@ -84,10 +84,9 @@
 
 <div class="content">
 	<div class="container benefits">
-		<h1>Author tests directly in the browser</h1>
+		<h1>Superpower your tests</h1>
 
-		<p>Writing and debugging tests is super easy with FuncUnit. Just open a test page with your favorite 
-			browser and turn on the debugger.</p>
+		<p>FuncUnit enhances assertion libraries like QUnit and Jasmine, enabling them to simulate user actions, easily test asynchronous behavior, and support black box testing. Use it's terse jQuery-like syntax to superpower your functional or unit tests.</p>
 
 	</div>
 
@@ -117,32 +116,16 @@
 
 	<div class="container example">
 		<h1>It's This Easy</h1>
-		<h2>Test a todo-list app with no effort at all</h2>
 
-		<pre class="code prettyprint lang-js" style="overflow: hidden;">
-module('todomvc');
+		<ul class="navigation">
+			<li class="header">Pick a Testrunner:</li>
+			<li class="tab selected">QUnit</li>
+			<li class="tab">Jasmine</li>
+		</ul>
 
-test('basic todo functionality', function() {
-	F('#new-todo').type('FuncUnit [enter]');
-	F('#new-todo').type('is [enter]');
-	F('#new-todo').type('awesome! [enter]');
-
-	F('.toggle:not(:checked)').click();
-	F('.toggle:not(:checked)').click();
-	F('.toggle:not(:checked)').click();
-
-	//adding wait for dramatic effect
-	F.wait(1000, function() {
-		F('#clear-completed').click();
-		F('.todo.completed').missing();
-	});
-});
-		</pre>
+		<div class="content"></div>
 
 		<input type="button" class="runner" value="Run Tests"/>
-
-		<iframe class="result" src="examples/todo_test.html?init"></iframe>
-		<br/>
 	</div>
 </div>
 
