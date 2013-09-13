@@ -17,7 +17,7 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8">
-	<title>FuncUnit.prototype.scrollTop - FuncUnit API</title>
+	<title>utilities - FuncUnit API</title>
 	<meta name="description" content="">
 	<meta name="author" content="">
 
@@ -241,7 +241,7 @@
 
 		</li>
 	
-		<li class="search-container active active">
+		<li class="search-container active">
 			
 				<span>Dimensions</span>
 			
@@ -373,14 +373,12 @@
 			
 				
 				
-					<li class="search-container active  expanded">
+					<li class="search-container  ">
 						<a 	class="function" 
 							href="FuncUnit.prototype.scrollTop.html" 
 							data-search="scrollTop">
 							scrollTop
 						</a>
-						
-							
 						
 					</li>
 				
@@ -612,7 +610,7 @@
 
 		</li>
 	
-		<li class="search-container active">
+		<li class="search-container active active">
 			
 				<span>Utilities</span>
 			
@@ -935,11 +933,9 @@
 		<section class="title">
 			<div class="pull-right">
 	<ul class="tags">
-		<li>function</li>
+		<li>group</li>
 	</ul>
 	<ul class="links">
-		
-			<li><a href="https://github.com/bitovi/funcunit/tree/v2.0.0/browser/getters.js#L220">source</a></li>
 		
 		
 			
@@ -949,10 +945,10 @@
 </div>
 
 <h1>
-scrollTop
+Utilities
 
 	
-		<span class="module">FuncUnit.prototype.scrollTop</span>
+		<span class="module">utilities</span>
 	
 
 
@@ -969,86 +965,6 @@ scrollTop
 			
 		</section>
 
-		
-		<section class="signature">
-			<h2>scrollTop([scrollTop] [,timeout] [,success] [,message])</h2>
-<div class="signature-wrapper">
-<p>Gets an element's <a href="http://api.jquery.com/scrollTop/">scrollTop</a> or waits until 
- it equals a specified value.</p>
-
-<pre><code class="lang-javascript"> // gets the scrollTop
-F("#foo").scrollTop();
-
- // waits until the scrollTop is 100
-F("#foo").scrollTop(100) </code></pre>
-
-	<h3>Parameters</h3>
-
-	<ol class="parameters">
-		
-		<li class="parameter">
-			<h4>scrollTop
-				<code>{Number | function()}</code><span class="pull-right optional">Optional</span></h4>
-			<div class="description">
-				<p>If provided uses this as a check before continuing to the next action.  Or you can 
- provide a function that returns true to continue to the next action.</p>
-			</div>
-			
-			
-			
-			
-			
-		</li>
-		
-		<li class="parameter">
-			<h4>timeout
-				<code>{Number}</code><span class="pull-right optional">Optional</span></h4>
-			<div class="description">
-				<p>overrides FuncUnit.timeout.  If provided, the wait will fail if not completed before this timeout.</p>
-			</div>
-			
-			
-			
-		</li>
-		
-		<li class="parameter">
-			<h4>success
-				<code>{function()}</code><span class="pull-right optional">Optional</span></h4>
-			<div class="description">
-				<p>a callback that will run after this action completes.</p>
-			</div>
-			
-			
-			
-		</li>
-		
-		<li class="parameter">
-			<h4>message
-				<code>{String}</code><span class="pull-right optional">Optional</span></h4>
-			<div class="description">
-				<p>if provided, an assertion will be passed when this wait condition completes successfully</p>
-			</div>
-			
-			
-			
-		</li>
-		
-	</ol>
-
-
-	<h3>Returns</h3>
-	<div class="returns">
-		<h4><code>{String | funcUnit}</code></h4>
-		<div class="description">
-			<p>if scrollTop is provided, 
- returns the funcUnit selector for chaining, otherwise returns the scrollTop of the selector.</p>
-		</div>
-	</div>
-
-
-</div>
-
-		</section>
 		
 
 		

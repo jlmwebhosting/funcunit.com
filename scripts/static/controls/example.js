@@ -8,15 +8,19 @@ can.Control('Bitovi.OSS.Example', {
 
 }, {
 	init: function() {
-		this.setHeight($(window));
+		if(this.element.length) {
+			this.setHeight($(window));
 
-		this.content = this.element.find('.content');
-		this.options.state.attr('runner', 'qunit');
+			this.content = this.element.find('.content');
+			this.options.state.attr('runner', 'qunit');
+		}
 	},
 
 	'{state} change': function(o, ev, attr, how, newVal, oldVal) {
 		this.started = false;
 		this[newVal]();
+
+		prettyPrint();
 	},
 
 	'{window} resize': function(el) {

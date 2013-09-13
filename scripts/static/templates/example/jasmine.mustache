@@ -1,60 +1,60 @@
-<pre class="code prettyprint lang-js" style="overflow: hidden;">
+<pre class="code prettyprint lang-js" style="overflow: auto;">
 //slowing funcunit down for dramatic effect
 F.speed = 100;
 
 describe('TodoMVC', function(){
   it('should create and complete todos', function() {
-    F('#new-todo', 0).type('FuncUnit [enter]');
-    F('#new-todo', 0).type('is [enter]');
-    F('#new-todo', 0).type('awesome! [enter]');
+    F('#new-todo').type('FuncUnit [enter]');
+    F('#new-todo').type('is [enter]');
+    F('#new-todo').type('awesome! [enter]');
 
-    F('.todo label:contains("FuncUnit")', 0).visible('basic assert');
-    F('.todo label:contains("is")', 0).visible('basic assert');
-    F('.todo label:contains("awesome")', 0).visible('basic assert');
+    F('.todo label:contains("FuncUnit")').visible();
+    F('.todo label:contains("is")').visible();
+    F('.todo label:contains("awesome")').visible();
 
-    F('.toggle:not(:checked)', 0).click();
-    F('.toggle:not(:checked)', 0).click();
-    F('.toggle:not(:checked)', 0).click();
+    F('.toggle:not(:checked)').click();
+    F('.toggle:not(:checked)').click();
+    F('.toggle:not(:checked)').click();
 
-    F('#clear-completed', 0).click();
-    F('.todo.completed', 0).missing('verifying completion');
+    F('#clear-completed').click();
+    F('.todo.completed').missing();
   });
 
   it('should filter todos, then complete', function() {
-    F('#new-todo', 0).type('Simple [enter]');
-    F('#new-todo', 0).type('Event [enter]');
-    F('#new-todo', 0).type('Simulation [enter]');
+    F('#new-todo').type('Simple [enter]');
+    F('#new-todo').type('Event [enter]');
+    F('#new-todo').type('Simulation [enter]');
 
-    F('.toggle:not(:checked)', 0).click();
-    F('.toggle:not(:checked)', 0).click();
+    F('.toggle:not(:checked)').click();
+    F('.toggle:not(:checked)').click();
 
-    F('a:contains("Active")', 0).click();
-    F('.todo label:contains("Simple")', 0).invisible('active view');
-    F('.todo label:contains("Event")', 0).invisible('active view');
-    F('.todo label:contains("Simulation")', 0).visible('active view');
+    F('a:contains("Active")').click();
+    F('.todo label:contains("Simple")').invisible();
+    F('.todo label:contains("Event")').invisible();
+    F('.todo label:contains("Simulation")').visible();
 
-    F('a:contains("Completed")', 0).click();
-    F('.todo label:contains("Simple")', 0).visible('completed view');
-    F('.todo label:contains("Event")', 0).visible('completed view');
-    F('.todo label:contains("Simulation")', 0).invisible('completed view');
+    F('a:contains("Completed")').click();
+    F('.todo label:contains("Simple")').visible();
+    F('.todo label:contains("Event")').visible();
+    F('.todo label:contains("Simulation")').invisible();
 
-    F('a:contains("All")', 0).click();
-    F('.todo label:contains("Simple")', 0).visible('all view');
-    F('.todo label:contains("Event")', 0).visible('all view');
-    F('.todo label:contains("Simulation")', 0).visible('all view');
+    F('a:contains("All")').click();
+    F('.todo label:contains("Simple")').visible();
+    F('.todo label:contains("Event")').visible();
+    F('.todo label:contains("Simulation")').visible();
 
-    F('.toggle:not(:checked)', 0).click();
-    F('#clear-completed', 0).click();
-    F('.todo.completed', 0).missing('verifying completion');
+    F('.toggle:not(:checked)').click();
+    F('#clear-completed').click();
+    F('.todo.completed').missing();
   });
 
   it('should destroy todos', function() {
-    F('#new-todo', 0).type('Sweet. [enter]');
+    F('#new-todo').type('Sweet. [enter]');
 
-    F('.todo label:contains("Sweet.")', 0).visible('basic assert');
-    F('.destroy', 0).click();
+    F('.todo label:contains("Sweet.")').visible();
+    F('.destroy').click();
 
-    F('.todo label:contains("Sweet.")', 0).missing('destroyed todo');
+    F('.todo label:contains("Sweet.")').missing();
   });
 });
 </pre>
