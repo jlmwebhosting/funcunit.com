@@ -24,20 +24,20 @@
 		<script src='../funcunit/dist/funcunit.js'></script>
 		<script src='todo_jasmine.js'></script>
 		<script type="text/javascript">
-			// if(/init/.test(window.location.search)) {
-				var jasmineEnv = jasmine.getEnv();
-				jasmineEnv.updateInterval = 1000;
+			var jasmineEnv = jasmine.getEnv();
+			jasmineEnv.updateInterval = 1000;
 
-				var htmlReporter = new jasmine.HtmlReporter();
+			var htmlReporter = new jasmine.HtmlReporter();
 
-				jasmineEnv.addReporter(htmlReporter);
+			jasmineEnv.addReporter(htmlReporter);
 
-				jasmineEnv.specFilter = function(spec) {
-					return htmlReporter.specFilter(spec);
-				};
+			jasmineEnv.specFilter = function(spec) {
+				return htmlReporter.specFilter(spec);
+			};
 
+			if(!/init/.test(window.location.search)) {
 				jasmineEnv.execute();
-			// }
+			}
 		</script>
 	</body>
 </html>

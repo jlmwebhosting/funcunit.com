@@ -6,23 +6,17 @@ eg: F('#id') will look in the window, however F('#id', 0) will look in window.fr
 This is not necessarily standard, however we're using an iframe on the demo page for style only.
  */
 
-// module('todomvc');
-
-// test('basic todo functionality', function() {
-// 	F('#new-todo', 0).type('Jasmine! [enter]');
-// 	F('#new-todo', 0).type('is [enter]');
-// 	F('#new-todo', 0).type('awesome! [enter]');
-
-// 	F('.toggle:not(:checked)', 0).click();
-// 	F('.toggle:not(:checked)', 0).click();
-// 	F('.toggle:not(:checked)', 0).click();
-
-// 	F('#clear-completed', 0).click();
-// 	F('.todo.completed', 0).missing('verifying completion');
-// });
-
-describe('Adapters', function(){
+describe('TodoMVC', function(){
 	it('should use the jasmine adapter', function() {
 		F('#new-todo', 0).type('Jasmine! [enter]');
+		F('#new-todo', 0).type('is [enter]');
+		F('#new-todo', 0).type('awesome! [enter]');
+
+		F('.toggle:not(:checked)', 0).click();
+		F('.toggle:not(:checked)', 0).click();
+		F('.toggle:not(:checked)', 0).click();
+
+		F('#clear-completed', 0).click();
+		F('.todo.completed', 0).missing();
 	});
 });
