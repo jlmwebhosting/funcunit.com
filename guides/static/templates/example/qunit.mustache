@@ -5,9 +5,10 @@ F.speed = 100;
 module('todomvc');
 
 test('basic todo functionality', function() {
-  F('#new-todo').type('FuncUnit [enter]');
-  F('#new-todo').type('is [enter]');
-  F('#new-todo').type('awesome! [enter]');
+  var newTodo = F('#new-todo');
+  newTodo.type('FuncUnit [enter]');
+  newTodo.type('is [enter]');
+  newTodo.type('awesome! [enter]');
 
   F('.todo label:contains("FuncUnit")').visible('basic assert');
   F('.todo label:contains("is")').visible('basic assert');
@@ -22,9 +23,10 @@ test('basic todo functionality', function() {
 });
 
 test('testing filters', function() {
-  F('#new-todo').type('Simple [enter]');
-  F('#new-todo').type('Event [enter]');
-  F('#new-todo').type('Simulation [enter]');
+  var newTodo = F('#new-todo');
+  newTodo.type('Simple [enter]');
+  newTodo.type('Event [enter]');
+  newTodo.type('Simulation [enter]');
 
   F('.toggle:not(:checked)').click();
   F('.toggle:not(:checked)').click();

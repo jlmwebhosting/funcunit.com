@@ -4,9 +4,10 @@ F.speed = 100;
 
 describe('TodoMVC', function(){
   it('should create and complete todos', function() {
-    F('#new-todo').type('FuncUnit [enter]');
-    F('#new-todo').type('is [enter]');
-    F('#new-todo').type('awesome! [enter]');
+    var newTodo = F('#new-todo');
+    newTodo.type('FuncUnit [enter]');
+    newTodo.type('is [enter]');
+    newTodo.type('awesome! [enter]');
 
     F('.todo label:contains("FuncUnit")').visible();
     F('.todo label:contains("is")').visible();
@@ -21,9 +22,10 @@ describe('TodoMVC', function(){
   });
 
   it('should filter todos, then complete', function() {
-    F('#new-todo').type('Simple [enter]');
-    F('#new-todo').type('Event [enter]');
-    F('#new-todo').type('Simulation [enter]');
+    var newTodo = F('#new-todo');
+    newTodo.type('Simple [enter]');
+    newTodo.type('Event [enter]');
+    newTodo.type('Simulation [enter]');
 
     F('.toggle:not(:checked)').click();
     F('.toggle:not(:checked)').click();

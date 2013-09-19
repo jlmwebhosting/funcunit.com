@@ -17,7 +17,7 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8">
-	<title>Contribute - FuncUnit API</title>
+	<title>FuncUnit.animationEnd - FuncUnit API</title>
 	<meta name="description" content="">
 	<meta name="author" content="">
 
@@ -748,7 +748,7 @@
 
 		</li>
 	
-		<li class="search-container active">
+		<li class="search-container active active">
 			
 				<span>Waits</span>
 			
@@ -760,12 +760,14 @@
 			
 				
 				
-					<li class="search-container  ">
+					<li class="search-container active  expanded">
 						<a 	class="function" 
 							href="FuncUnit.animationEnd.html" 
 							data-search="F.animationEnd()">
 							F.animationEnd()
 						</a>
+						
+							
 						
 					</li>
 				
@@ -917,11 +919,11 @@
 		<section class="title">
 			<div class="pull-right">
 	<ul class="tags">
-		<li>page</li>
+		<li>function</li>
 	</ul>
 	<ul class="links">
 		
-			<li><a href="https://github.com/bitovi/funcunit/tree/v2.0.1/lib/jasmine/Contribute.markdown">source</a></li>
+			<li><a href="https://github.com/bitovi/funcunit/tree/v2.0.1/browser/waits.js#L148">source</a></li>
 		
 		
 			
@@ -931,7 +933,11 @@
 </div>
 
 <h1>
-Contribute
+F.animationEnd()
+
+	
+		<span class="module">FuncUnit.animationEnd</span>
+	
 
 
 </h1>
@@ -944,65 +950,28 @@ Contribute
 		</section>
 
 		<section class="description">
-			<h1>Developing for Jasmine Core</h1>
+			
 		</section>
 
 		
+		<section class="signature">
+			<h2>animationEnd()</h2>
+<div class="signature-wrapper">
+<p>Waits until all animations in the page have completed.  Only works
+if the tested page has jQuery present.</p>
 
-		
-		
-		
-		
 
-		
-		<section class="comment">
-			<h2>How to Contribute</h2>
 
-<p>We welcome your contributions - Thanks for helping make Jasmine a better project for everyone. Please review the backlog and discussion lists (the main group - <a href="http://groups.google.com/group/jasmine-js">http://groups.google.com/group/jasmine-js</a> and the developer's list - <a href="http://groups.google.com/group/jasmine-js-dev">http://groups.google.com/group/jasmine-js-dev</a>) before starting work - what you're looking for may already have been done. If it hasn't, the community can help make your contribution better.</p>
+</div>
 
-<h2>How to write new Jasmine code</h2>
-
-<p>Or, How to make a successful pull request</p>
-
-<ul>
-<li><em>Do not change the public interface</em>. Lots of projects depend on Jasmine and if you aren't careful you'll break them</li>
-<li><em>Be environment agnostic</em> - server-side developers are just as important as browser developers</li>
-<li><em>Be browser agnostic</em> - if you must rely on browser-specific functionality, please write it in a way that degrades gracefully</li>
-<li><em>Write specs</em> - Jasmine's a testing framework; don't add functionality without test-driving it</li>
-<li><em>Ensure the *entire* test suite is green</em> in all the big browsers, Node, and JSHint - your contribution shouldn't break Jasmine for other users</li>
-</ul>
-
-<p>Follow these tips and your pull request, patch, or suggestion is much more likely to be integrated.</p>
-
-<h2>Environment</h2>
-
-<p>Ruby, RubyGems and Rake are used in order to script the various file interactions. You will need to run on a system that supports Ruby in order to run Jasmine's specs.</p>
-
-<p>Node.js is used to run most of the specs (the HTML-independent code) and should be present. Additionally, the JS Hint project scrubs the source code as part of the spec process.</p>
-
-<h2>Development</h2>
-
-<p>All source code belongs in <code>src/</code>. The <code>core/</code> directory contains the bulk of Jasmine's functionality. This code should remain browser- and environment-agnostic. If your feature or fix cannot be, as mentioned above, please degrade gracefully. Any code that should only be in a non-browser environment should live in <code>src/console/</code>. Any code that depends on a browser (specifically, it expects <code>window</code> to be the global or <code>document</code> is present) should live in <code>src/html/</code>.</p>
-
-<p>Please respect the code patterns as possible. For example, using <code>jasmine.getGlobal()</code> to get the global object so as to remain environment agnostic.</p>
-
-<h2>Running Specs</h2>
-
-<p>As in all good projects, the <code>spec/</code> directory mirrors <code>src/</code> and follows the same rules. The browser runner will include and attempt to run all specs. The node runner will exclude any html-dependent specs (those in <code>spec/html/</code>).</p>
-
-<p>You will notice that all specs are run against the built <code>jasmine.js</code> instead of the component source files. This is intentional as a way to ensure that the concatenation code is working correctly.</p>
-
-<p>Please ensure all specs are green before committing or issuing a pull request.</p>
-
-<p>There are Thor tasks to help with getting green - run <code>thor list</code> to see them all. Here are the key tasks:</p>
-
-<ul>
-<li><code>thor jasmine_dev:execute_specs</code> outputs the expected number of specs that should be run and attempts to run in browser and Node</li>
-<li><code>thor jasmine_dev:execute_specs_in_browser</code> opens <code>spec/runner.html</code> in the default browser on MacOS. Please run this in at least Firefox and Chrome before committing</li>
-<li><code>thor jasmine_dev:execute_specs_in_node</code> runs all the Jasmine specs in Node.js - it will complain if Node is not installed</li>
-<li><code>thor jasmine_dev:js_hint</code> runs all the files through JSHint and will complain about potential viable issues with your code. Fix them.</li>
-</ul>
 		</section>
+		
+
+		
+		
+		
+		
+
 		
 
 		

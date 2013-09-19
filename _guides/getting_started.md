@@ -3,14 +3,19 @@
 
 @body
 
-In this guide, we'll use [FuncUnit] to write functional tests for the jQuery UI 
+In this guide, we'll use FuncUnit to write functional tests for the jQuery UI 
 autocomplete widget. We'll go over:
 
 * Running a test in browser
 * Writing a test
 * Debugging a broken test
-* Running tests via Selenium
-* Running tests via PhantomJS
+
+Note:
+
+FuncUnit has two dependencies:
+
+* jQuery - only on the test runner page
+* QUnit or Jasmine
 
 ## Running Autocomplete Tests
 
@@ -126,9 +131,7 @@ previous queued methods finish, this function will run on repeat. Change that li
   });
 @codeend
 
-"this" in your wait method is the element that .text is being run against. The console will show the following:
-
-@image static/images/console.png
+"this" in your wait method is the element that .text is being run against.
 
 ## Conclusion
 

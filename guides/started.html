@@ -46,7 +46,6 @@
 				</ul>
 			</div>
 			<ul class="nav">
-				<li class=""><a href="../index.html">Home</a></li>
 				<li class="active"><a href="../guides/index.html">Guides</a></li>
 				<li class=""><a href="../docs/index.html">Api</a></li>
 				<li class=""><a href="../community.html#!forums">Community</a></li>
@@ -178,7 +177,7 @@
 	</ul>
 	<ul class="links">
 		
-			<li><a href="https://github.com/bitovi/funcunit/tree/v2.0.0/getting_started.md">source</a></li>
+			<li><a href="https://github.com/bitovi/funcunit/tree/v2.0.1/getting_started.md">source</a></li>
 		
 		
 			
@@ -217,15 +216,22 @@ Getting Started
 
 		
 		<section class="comment">
-			<p>In this guide, we'll use [FuncUnit] to write functional tests for the jQuery UI 
+			<p>In this guide, we'll use FuncUnit to write functional tests for the jQuery UI 
 autocomplete widget. We'll go over:</p>
 
 <ul>
 <li>Running a test in browser</li>
 <li>Writing a test</li>
 <li>Debugging a broken test</li>
-<li>Running tests via Selenium</li>
-<li>Running tests via PhantomJS</li>
+</ul>
+
+<p>Note:</p>
+
+<p>FuncUnit has two dependencies:</p>
+
+<ul>
+<li>jQuery - only on the test runner page</li>
+<li>QUnit or Jasmine</li>
 </ul>
 
 <h2>Running Autocomplete Tests</h2>
@@ -339,9 +345,7 @@ previous queued methods finish, this function will run on repeat. Change that li
     if(val === "C#") return true;
   });</code></pre>
 
-<p>"this" in your wait method is the element that .text is being run against. The console will show the following:</p>
-
-<p><img class='image_tag' src='static/images/console.png' /></p>
+<p>"this" in your wait method is the element that .text is being run against.</p>
 
 <h2>Conclusion</h2>
 
@@ -365,7 +369,6 @@ or check out some <a href="funcunit.demos.html">demos</a>.</p>
 		<nav class="container">
 			<a class="brand javascriptmvc" href="index.html"></a>
 			<ul class="nav">
-				<li class=""><a href="../index.html">Home</a></li>
 				<li class="active"><a href="../guides/index.html">Guides</a></li>
 				<li class=""><a href="../docs/index.html">Api</a></li>
 				<li class=""><a href="../community.html#!forums">Community</a></li>
