@@ -3,12 +3,11 @@
 
 @body
 
-In this guide, we'll use FuncUnit to write functional tests for the jQuery UI 
-autocomplete widget. We'll go over:
+In this guide, we'll use FuncUnit to write functional tests for the [Srchr sample app](http://bitovi.github.io/srchr). We'll cover:
 
-* Running a test in browser
-* Writing a test
-* Debugging a broken test
+* How to get FuncUnit
+* Enhancing unit tests
+* Testing integration between widgets
 
 Note:
 
@@ -17,129 +16,127 @@ FuncUnit has two dependencies:
 * jQuery - only on the test runner page
 * QUnit or Jasmine
 
-## Running Autocomplete Tests
+## How to get FuncUnit
 
-Open _funcunit/test/autosuggest/autosuggest.html_ in a browser.  Type "J" in the input.  You'll see the following:
+You can download [funcunit.js](/dist/latest/funcunit.js), or install as a bower component:
 
-@image static/images/autosuggest.png
+    bower install funcunit
 
+All examples below can be downloaded [here.](/dist/examples.zip)
 
-This page is a simple demo app, using [jQueryUI autocomplete](http://jqueryui.com/demos/autocomplete/). It 
-shows results when you start typing, then you can click a result (or use mouse navigation) to populate the input.
+## Enhancing unit tests
 
-There is a test already written.  Open <i>funcunit/test/autosuggest/autosuggest_test.js</i> in your IDE:
+This section will take a basic QUnit test and use FuncUnit to simulate user interaction.
 
-@codestart
-module("autosuggest",{
-  setup: function() {
-    F.open('autosuggest.html')
-  }
-});
+Instead of using the built in QUnit assertions, you can use any of FuncUnit's [waits](/guides/funcunit.waits.html).
 
-test("results appear",function(){
-  F('input').visible().click().type("Java")
+    test('Hello World!', function() {
+        F('.sample').text('Hello World!', 'h1 should have text hello world');
+    });
 
-  // wait until we have some results
-  F('.ui-menu-item').visible(function(){
-    equal( F('.ui-menu-item').size(), 2, "there are 2 results")
-  })
-});
-@codeend
+_Note: Included in the [examples package](/dist/examples.zip) is a "Hello World" Jasmine spec._
 
-As you can probably tell, the [funcunit.finding F method] is an alias for jQuery (*).  This test:
+## Testing a UI widget
 
-1. Opens autosuggest.html
-1. Grabs the input element, clicks it, and types "Java"
-1. Grabs the element that is populated with results, waits for it to be visible
-1. Asserts that there are 2 results shown
+This section will test a single UI widget, using QUnit from the [Srchr](http://bitovi.github.io/srchr) app. Specifically, the Tabs widget will be explained here, however Srchr has many FuncUnit tests for each widget.
 
-(*) Actually its a [http://api.jquery.com/jQuery.sub/ copy] of jQuery that performs queries in 
-the application window by default, and sometimes caches its selector to run asynchronously.
+Srchr is built using [StealJS](http://javascriptmvc.com/docs/stealjs.html) and [CanJS](http://canjs.com).
 
-To run this test, open <i>funcunit/test/autosuggest/funcunit.html</i> in any browser (turn off your popup blocker).  The test will open and run.  The results are shown in the QUnit page:
+Setup is similar to any unit testing approach:
 
-@image static/images/qunit.png
+    steal('ui/tabs', 'funcunit', function(Tabs, F) {
 
+        //Some DOM we'll use for testing the Tabs widget
+        var tabsHTML ="<ul id='resultsTab'>\
+            <li><a class='flickr' href='#flickr'>Flickr</a></li>\
+            <li><a class='yahoo' href='#yahoo'>Yahoo</a></li>\
+            <li><a class='upcoming' href='#upcoming'>Upcoming</a></li>\
+            </ul>\
+            <div id='flickr' class='tab'>one</div>\
+            <div id='upcoming' class='tab'>three</div>\
+            <div id='yahoo' class='tab'>two</div>";
 
-## Writing an Autocomplete Test
+        //Using QUnit's setup/teardown methods,
+        //create a Tabs widget before each test, then clean up the DOM after
+        module("ui/tabs",{
+            setup : function(){
+                $("#qunit-test-area").html(tabsHTML);
+                this.flickrLI = $("#resultsTab li:eq(0)");
+                this.upcomingLI = $("#resultsTab li:eq(1)");
+                this.yahooLI = $("#resultsTab li:eq(1)");
+            },
+            teardown: function(){
+                $("#qunit-test-area").empty();
+            }
+        });
 
-Next we'll add a test for selecting a result with the keyboard.  FuncUnit's [apifuncunit API] consists of:
+        //tests will go here
+    });
 
-* [funcunit.finding The F Method] - Perform a query in the application window
-* [funcunit.actions Actions] - Simulate user actions like [FuncUnit.prototype.click click],  [FuncUnit.prototype.type type],  [FuncUnit.prototype.drag drag]
-* [funcunit.waits Waits] - Wait for a condition in your page to be met.  Fail the test if the condition isn't met before a timeout.
-* [funcunit.getters Assertions & getters] - Synchronously check a condition in your page.
+Now, test basic functionality for the Tabs widget. "Tabs" shows and hides panels based on the `click` event and setting respective CSS classes.
 
-The setup and assertion methods are part of the [http://docs.jquery.com/Qunit QUnit] API.
+In the below example, notice: `F(".yahoo").click()`. This will trigger `mousedown`, `click` and `mouseup` accordingly, accurately depicting a true user click. `F("#yahoo").visible()` is a [wait](/guides/funcunit.waits.html) and can take a callback method. This method will execute after $('#yahoo') is visible on the page. This is helpful for elements that are animated in, as FuncUnit will poll for a given "wait" assertion.
 
-Our test should do the following:
+    test("Proper hiding and showing", function() {
+        var enabled  = can.compute(['flickr','yahoo','upcoming']);
+        new Tabs("#resultsTab",{
+            enabled: enabled
+        });
 
-1. Type "JavaS" in the input.
-1. Wait for a result to be visible.
-1. Select the input and press the down and enter keys to select the first item.
-1. Wait for the input to show "JavaScript".
+        F(".yahoo").click();
+        F("#yahoo").visible(function() {
+            equal(F("#flickr").css('display'), 'none', "Old tab contents are hidden");
+            ok(!F(".flickr").parent().hasClass('active'), 'Old tab is not set to active');
+            ok(F(".yahoo").parent().hasClass('active'), 'New tab is set to active');
+        });
+    });
 
-Add the following under the first test:
+You can mix/match your built in assertion library as well as use FuncUnit's waits & actions to accurately depict user interaction.
 
-@codestart
-test("keyboard navigation",function(){
-  F('input').visible().click().type("JavaS")
+## Testing integration between widgets
 
-  F('.ui-menu-item').visible()
-  F('input').type('[down][enter]')
-    .val("JavaScript")
-});
-@codeend
+A more powerful use for FuncUnit is testing the interaction between widgets. Sometime's referred to as smoke or integration tests, FuncUnit provides an API to test an app via url.
 
-A few important notes about this test:
+_Note: It is recommend for this type of test to have a fixturized service layer such as [CanJS fixtures](http://canjs.com/docs/can.fixture.html) or use an isolated test database when service calls are present._
 
-1. We have no assertions. This is ok. Most FuncUnit tests don't need them. If the wait conditions aren't met before a timeout, the test will fail.  If the test completes, this feature is working.
-1. The click, visible, and val methods are actually doing asynchronous things. FuncUnit lets you write tests with this linear syntax by queueing the actual methods and running them one by one. This is to prevent your tests from being an unreadable mess of nested functions like:
+Use [F.open](/docs/FuncUnit.open.html) to open a new window with the url to test.
 
-@codestart
-F('.input').visible(function(){
-  F('.input').click(function(){
-    F('input').type("JavaS")
-  })
-})
-@codeend
+    steal('funcunit', function(F) {
+        module('srchr', {
+            setup: function() {
+                F.open('srchr/srchr.html');
+            }
+        });
+    });
 
-Reload the funcunit.html page and see your new test run and pass.
+FuncUnit keeps a reference to the new page and can run tests in an applications true state, as opposed to within a test div with standard unit testing.
 
-## Debugging tests
+Using FuncUnit's actions, waits and QUnit's built in assertions, we can test Srchr as a normal user might expect.
 
-Now change .val("JavaScript") to .text("C#").  Reload the page and watch it timeout and fail.
+    test('Search shows results in selected service', function() {
+        F('input[value=Reddit]').click();
+        F('#query').click().type('Dogs\r');
 
-@image static/images/broken.png
+        // wait until there are 2 results
+        F("#Reddit li").exists(function() {
 
+            ok(true, "We see results in Reddit");
+            // make sure we see dogs in the history
+            var r = /Dogs\s+r/i;
 
-In this case, the error message shown is a good indication for why the test is broken. But often we need 
-more visibility to debug a test.
+            ok(r.test(F("#history li.selected").text()), "we see dogs correctly");
 
-Your first debugging instinct might be "Let's add a breakpoint!".  But, as noted, this 
-code is running asynchronously.  When .val() runs, its adding a method to 
-FuncUnit.queue, not actually doing the check.  When its this wait condition's turn to 
-run, $("input").val() === "JavaScript" is checked repeatedly until its true or a timeout is reached.  
-
-We can replace the string value with a checker function and use console.log to see what's going on. When 
-previous queued methods finish, this function will run on repeat. Change that line to:
-
-@codestart
-  .val(function(val){
-    console.log(val, this)
-    if(val === "C#") return true;
-  });
-@codeend
-
-"this" in your wait method is the element that .text is being run against.
+            // make sure flickr and everyone else is diabled
+            ok(F('#results li:contains(Flickr)').hasClass('disabled'), "Flickr is disabled.");
+            ok(F('#results li:contains(Google)').hasClass('disabled'), "Google is disabled.");
+        });
+    });
 
 ## Conclusion
 
-Hopefully, this guide illustrates how FuncUnit provides the holy grail of testing: easy, familiar syntax, in browser running for 
-easy debugging, and simple automation.  
+Hopefully, this guide illustrates how FuncUnit provides the holy grail of testing: easy, familiar syntax, in browser running for
+easy debugging and simple automation.
 
-FuncUnit will transform your development lifecycle, give your developers confidence, and improve quality.
+FuncUnit will transform your development lifecycle, give your developers confidence and improve quality.
 
-
-That's it! If you want to learn more, read about FuncUnit's [FuncUnit API](../docs) 
-or check out some [funcunit.demos demos].
+That's it! If you want to learn more, read about FuncUnit's [FuncUnit API](/docs).
