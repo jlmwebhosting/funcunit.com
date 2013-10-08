@@ -50,10 +50,22 @@ module.exports = function (grunt) {
 					cwd: 'lib/jquery/'
 				}]
 			}
+		},
+
+		compress: {
+			main: {
+				options: {
+					archive: 'dist/examples.zip'
+				},
+				files: [{
+					src: ['examples/**'], dest: 'dist/'
+				}]
+			}
 		}
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-contrib-compress');
 
 	grunt.registerTask('default', ['copy']);
 
