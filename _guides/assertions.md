@@ -8,7 +8,7 @@ work synchronously.
 
 ## Getter methods
 
-Inside FuncUnit callbacks, the S method returns a jQuery collection.  You can perform any jQuery getter method 
+Inside FuncUnit callbacks, the F method returns a jQuery collection.  You can perform any jQuery getter method 
 on it, like [http://api.jquery.com/text/ text], [http://api.jquery.com/val/ val], 
 [http://api.jquery.com/width/ width], [http://api.jquery.com/size/ size], etc. Any jQuery method can be used 
 as a getter.

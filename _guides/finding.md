@@ -17,10 +17,10 @@ __selector__ <code>{String|Function|Object}</code>
 
 _String_
 
-The S method accepts any valid jQuery selector string, just like $.  One difference from $ is that this 
+The F method accepts any valid jQuery selector string, just like $.  One difference from $ is that this 
 query will happen in the context of the window of the page you're testing, not the QUnit page where it runs.
 
-Depending on the context in which S is called, this selector may be used immediately and return a jQuery 
+Depending on the context in which F is called, this selector may be used immediately and return a jQuery 
 collection, or it may cache the selector, which will be used in the asynchronous queue later to find elements 
 when previous queued methods have finished.  Read more about this below.
 
@@ -69,7 +69,7 @@ F("a.another, "myframe")
 
 ### Synchronous vs asynchronous queries
 
-As mentioned above, S sometimes performs synchronous queries and returns a jQuery collection object.  
+As mentioned above, F sometimes performs synchronous queries and returns a jQuery collection object.  
 Other times, it returns nothing, caches the selector, and adds a method to [FuncUnit._queue].
 
 __Synchronous__
@@ -79,7 +79,7 @@ All [funcunit.actions actions] and [funcunit.waits waits] are asynchronous comma
 runs after the queued method completes.
 
 Inside these callbacks, you get information about the page and perform assertions, synchronously. 
-Any time S is called inside a callback, it runs synchronously and returns a jQuery collection.
+Any time F is called inside a callback, it runs synchronously and returns a jQuery collection.
 
 @codestart
 F(".foo").visible(function(){
@@ -94,8 +94,8 @@ Inside these callbacks, you can set breakpoints and debug tests.
 Sometimes, you want to get information about the page as soon as a test begins.  Later in a callback, 
 you can compare this initial value with the current value.
 
-If you call S at the start of a test, it will also run immediately and return a $ collection. Until the first 
-item is added to the queue, S will run synchronously.
+If you call F at the start of a test, it will also run immediately and return a $ collection. Until the first 
+item is added to the queue, F will run synchronously.
 
 @codestart
 test("contacts test", function(){
@@ -123,7 +123,7 @@ test("contacts test", function(){
 
 __Asynchronous__
 
-Except for the cases outlined above, the S method needs to run asynchronously in the correct queue order. In this case, doing an 
+Except for the cases outlined above, the F method needs to run asynchronously in the correct queue order. In this case, doing an 
 immediate query and returning a collection would be wasteful and slow down test performance.
 
 @codestart
@@ -140,7 +140,7 @@ F(".foo").click()
 
 F is a "copy" of $, created using [http://api.jquery.com/jQuery.sub/ jQuery.sub].  All FuncUnit methods, 
 like actions, waits, and traversers, are added to F.fn.  All the jQuery methods that FuncUnit doesn't 
-overload are callable on S collections. 
+overload are callable on F collections. 
 
 The reason for this is to preserve jQuery in the test page, unmodified.  If you want to use jQuery, none of 
 its methods are modified. jQuery can be used to do unit testing, or to directly access the test page and do 
@@ -169,7 +169,7 @@ Most likely this method works synchronously so you have to use it inside a callb
 returning synchronously.
 
 @codestart
-// inside a wait callback, S returns a jQuery collection
+// inside a wait callback, F returns a jQuery collection
 F(".foo").visible(function(){
   // call myplugin on jQuery collection
   var els = F(".contact").myplugin()

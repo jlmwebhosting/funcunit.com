@@ -30,7 +30,7 @@ steal("documentjs", "steal/rhino/json.js", function (DocumentJS) {
 		return "FuncUnit"
 	}
 
-	var pkg = JSON.parse(readFile('./funcunit/package.json'));
+	var pkg = JSON.parse(readFile('./funcunit/bower.json'));
 
 	DocumentJS('scripts/doc.html',{
 		"markdown": ['funcunit'],
