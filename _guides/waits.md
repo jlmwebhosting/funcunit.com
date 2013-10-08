@@ -17,20 +17,20 @@ Most wait commands only require a single argument.
 
 <code>wait( checkVal, [timeout], [callback], [message] )</code>
 
-- [FuncUnit.prototype.size size]
-- [FuncUnit.prototype.html html]
-- [FuncUnit.prototype.text text]
-- [FuncUnit.prototype.val val]
-- [FuncUnit.prototype.offset offset]
-- [FuncUnit.prototype.position position]
-- [FuncUnit.prototype.scrollTop scrollTop]
-- [FuncUnit.prototype.scrollLeft scrollLeft]
-- [FuncUnit.prototype.height height]
-- [FuncUnit.prototype.width width]
-- [FuncUnit.prototype.innerWidth innerWidth]
-- [FuncUnit.prototype.innerHeight innerHeight]
-- [FuncUnit.prototype.outerWidth outerWidth]
-- [FuncUnit.prototype.outerHeight outerHeight]
+- [FuncUnit.prototype.size size](../docs/FuncUnit.prototype.size.html)
+- [FuncUnit.prototype.html html](../docs/FuncUnit.prototype.html.html)
+- [FuncUnit.prototype.text text](../docs/FuncUnit.prototype.text.html)
+- [FuncUnit.prototype.val val](../docs/FuncUnit.prototype.val.html)
+- [FuncUnit.prototype.offset offset](../docs/FuncUnit.prototype.offset.html)
+- [FuncUnit.prototype.position position](../docs/FuncUnit.prototype.position.html)
+- [FuncUnit.prototype.scrollTop scrollTop](../docs/FuncUnit.prototype.scrollTop.html)
+- [FuncUnit.prototype.scrollLeft scrollLeft](../docs/FuncUnit.prototype.scrollLeft.html)
+- [FuncUnit.prototype.height height](../docs/FuncUnit.prototype.height.html)
+- [FuncUnit.prototype.width width](../docs/FuncUnit.prototype.width.html)
+- [FuncUnit.prototype.innerWidth innerWidth](../docs/FuncUnit.prototype.innerWidth.html)
+- [FuncUnit.prototype.innerHeight innerHeight](../docs/FuncUnit.prototype.innerHeight.html)
+- [FuncUnit.prototype.outerWidth outerWidth](../docs/FuncUnit.prototype.outerWidth.html)
+- [FuncUnit.prototype.outerHeight outerHeight](../docs/FuncUnit.prototype.outerHeight.html)
 
 @codestart
 // wait until there are 5 .foo elements
@@ -49,9 +49,9 @@ Some jQuery methods accept 2 parameters.  Similarly, those wait methods accept t
 
 <code>wait( keyVal, checkVal, [timeout], [callback], [message] )</code>
 
-- [FuncUnit.prototype.attr attr]
-- [FuncUnit.prototype.hasClass hasClass]
-- [FuncUnit.prototype.css css]
+- [FuncUnit.prototype.attr attr](../docs/FuncUnit.prototype.attr.html)
+- [FuncUnit.prototype.hasClass hasClass](../docs/FuncUnit.prototype.hasClass.html)
+- [FuncUnit.prototype.css css](../docs/FuncUnit.prototype.css.html)
 
 @codestart
 // wait until $.data for .foo on the key "count" has 2
@@ -70,10 +70,10 @@ Several wait methods check for existence/visibility of elements. These require z
 
 <code>wait( [timeout], [callback], [message] )</code>
 
-- [FuncUnit.prototype.exists exists]
-- [FuncUnit.prototype.missing missing]
-- [FuncUnit.prototype.visible visibile]
-- [FuncUnit.prototype.invisible invisible]
+- [FuncUnit.prototype.exists exists](../docs/FuncUnit.prototype.exists.html)
+- [FuncUnit.prototype.missing missing](../docs/FuncUnit.prototype.missing.html)
+- [FuncUnit.prototype.visible visibile](../docs/FuncUnit.prototype.visible.html)
+- [FuncUnit.prototype.invisible invisible](../docs/FuncUnit.prototype.invisible.html)
 
 @codestart
 // wait until the .foo element is removed

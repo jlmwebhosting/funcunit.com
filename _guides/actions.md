@@ -6,14 +6,14 @@ Actions are used to simulate user behavior such as clicking, typing, moving the 
 
 ## Commands
 
- - [FuncUnit.open open] - opens a page.
- - [FuncUnit.prototype.click click] - clicks an element (mousedown, mouseup, click).
- - [FuncUnit.prototype.dblclick dblclick] - two clicks followed by a dblclick.
- - [FuncUnit.prototype.rightClick rightClick] - a right mousedown, mouseup, and contextmenu.
- - [FuncUnit.prototype.type type] - types characters into an element.
- - [FuncUnit.prototype.move move] - mousemove, mouseover, and mouseouts from one element to another.
- - [FuncUnit.prototype.drag drag] - a drag motion from one element to another.
- - [FuncUnit.prototype.scroll scroll] - scrolls an element.
+ - [FuncUnit.open](../docs/FuncUnit.open.html) - opens a page.
+ - [FuncUnit.prototype.click click](../docs/FuncUnit.prototype.click.html) - clicks an element (mousedown, mouseup, click).
+ - [FuncUnit.prototype.dblclick dblclick](../docs/FuncUnit.prototype.dblclick.html) - two clicks followed by a dblclick.
+ - [FuncUnit.prototype.rightClick rightClick](../docs/FuncUnit.prototype.rightClick.html) - a right mousedown, mouseup, and contextmenu.
+ - [FuncUnit.prototype.type type](../docs/FuncUnit.prototype.type.html) - types characters into an element.
+ - [FuncUnit.prototype.move move](../docs/FuncUnit.prototype.move.html) - mousemove, mouseover, and mouseouts from one element to another.
+ - [FuncUnit.prototype.drag drag](../docs/FuncUnit.prototype.drag.html) - a drag motion from one element to another.
+ - [FuncUnit.prototype.scroll scroll](../docs/FuncUnit.prototype.scroll.html) - scrolls an element.
 
 Actions run asynchronously, meaning they do not complete all their events immediately.  
 However, each action is queued so that you can write actions (and waits) linearly.

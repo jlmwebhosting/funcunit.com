@@ -1,4 +1,4 @@
-steal('funcunit/syn',
+steal('syn',
 	'funcunit/browser/core.js', 
 	'funcunit/browser/adapters/adapters.js',
 	'funcunit/browser/open.js', 

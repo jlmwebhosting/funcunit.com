@@ -115,28 +115,6 @@
 		<li class="search-container">
 			
 			
-				<a href="funcunit.demos.html" data-search="Demos">
-					Demos
-				</a>
-			
-
-			
-		</li>
-	
-		<li class="search-container">
-			
-			
-				<a href="funcunit.features.html" data-search="Features">
-					Features
-				</a>
-			
-
-			
-		</li>
-	
-		<li class="search-container">
-			
-			
 				<a href="funcunit.finding.html" data-search="Finding Elements">
 					Finding Elements
 				</a>
@@ -150,17 +128,6 @@
 			
 				<a href="funcunit.waits.html" data-search="Waits">
 					Waits
-				</a>
-			
-
-			
-		</li>
-	
-		<li class="search-container">
-			
-			
-				<a href="funcunit.contributing.html" data-search="Contributing">
-					Contributing
 				</a>
 			
 
@@ -275,7 +242,8 @@ Getting Started
         &lt;div id='upcoming' class='tab'&gt;three&lt;/div&gt;\
         &lt;div id='yahoo' class='tab'&gt;two&lt;/div&gt;";
 
-    //Using QUnit's setup/teardown methods, create a Tabs widget before each test, then clean up the DOM after
+    //Using QUnit's setup/teardown methods,
+    //create a Tabs widget before each test, then clean up the DOM after
     module("ui/tabs",{
         setup : function(){
             $("#qunit-test-area").html(tabsHTML);

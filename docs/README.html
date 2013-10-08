@@ -944,7 +944,7 @@ README
 		</section>
 
 		<section class="description">
-			<h1><a href="http://qunitjs.com">QUnit</a> - A JavaScript Unit Testing framework.</h1>
+			<p>What It Is</p>
 		</section>
 
 		
@@ -956,62 +956,26 @@ README
 
 		
 		<section class="comment">
-			<p>QUnit is a powerful, easy-to-use, JavaScript test suite. It's used by the jQuery
-project to test its code and plugins but is capable of testing any generic
-JavaScript code (and even capable of testing JavaScript code on the server-side).</p>
+			<p>Syn is a synthetic event library that pretty much handles typing, clicking, moving, and 
+dragging exactly how a real user would perform those actions.</p>
 
-<p>QUnit is especially useful for regression testing: Whenever a bug is reported,
-write a test that asserts the existence of that particular bug. Then fix it and
-commit both. Every time you work on the code again, run the tests. If the bug
-comes up again - a regression - you'll spot it immediately and know how to fix
-it, because you know what code you just changed.</p>
+<p>Relevant Links</p>
 
-<p>Having good unit test coverage makes safe refactoring easy and cheap. You can
-run the tests after each small refactoring step and always know what change
-broke something.</p>
+<ol>
+<li><a href="http://bitovi.com/blog/2010/07/syn-a-standalone-synthetic-event-library.html">http://bitovi.com/blog/2010/07/syn-a-standalone-synthetic-event-library.html</a></li>
+<li>Full Syn docs coming soon!</li>
+</ol>
 
-<p>QUnit is similar to other unit testing frameworks like JUnit, but makes use of
-the features JavaScript provides and helps with testing code in the browser, e.g.
-with its stop/start facilities for testing asynchronous code.</p>
+<p>Using Syn</p>
 
-<p>If you are interested in helping developing QUnit, you are in the right place.
-For related discussions, visit the
-<a href="http://forum.jquery.com/qunit-and-testing">QUnit and Testing forum</a>.</p>
+<p>You'd use syn to perform functional testing or simulate user actions on a JavaScript application. To add syn to your page all you need to do is add <a href="https://raw.github.com/bitovi/syn/master/dist/syn.js">syn.js</a> to your page. Syn is also available via Bower:</p>
 
-<p>Planning for a qunitjs.com site and other testing tools related work now happens
-on the <a href="http://jquerytesting.pbworks.com/w/page/41556026/FrontPage">jQuery Testing Team planning wiki</a>.</p>
-
-<h2>Development</h2>
-
-<p>To submit patches, fork the repository, create a branch for the change. Then implement
-the change, run <code>grunt</code> to lint and test it, then commit, push and create a pull request.</p>
-
-<p>Include some background for the change in the commit message and <code>Fixes #nnn</code>, referring
-to the issue number you're addressing.</p>
-
-<p>To run <code>grunt</code>, you need <code>node</code> and <code>npm</code>, then <code>npm install grunt -g</code>. That gives you a global
-grunt binary. For additional grunt tasks, also run <code>npm install</code>.</p>
-
-<h2>Releases</h2>
-
-<p>Install git-extras and run <code>git changelog</code> to update History.md.
-Update qunit/qunit.js|css and package.json to the release version, commit and
-tag, update them again to the next version, commit and push commits and tags
-(<code>git push --tags origin master</code>).</p>
-
-<p>Put the 'v' in front of the tag, e.g. <code>v1.8.0</code>. Clean up the changelog, removing merge commits
-or whitespace cleanups.</p>
-
-<p>To upload to code.jquery.com (replace $version accordingly):</p>
-
-<pre><code>scp -q qunit/qunit.js jqadmin@code.origin.jquery.com:/var/www/html/code.jquery.com/qunit/qunit-$version.js
-scp -q qunit/qunit.css jqadmin@code.origin.jquery.com:/var/www/html/code.jquery.com/qunit/qunit-$version.css
+<pre><code>bower install syn
 </code></pre>
 
-<p>Then update /var/www/html/code.jquery.com/index.html and purge it with:</p>
+<p>Running Syn Tests</p>
 
-<pre><code>curl -s http://code.origin.jquery.com/?reload
-</code></pre>
+<p>Load syn/qunit.html in any browser to run all the tests.</p>
 		</section>
 		
 
