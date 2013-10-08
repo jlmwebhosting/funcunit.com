@@ -12,4 +12,4 @@
 	url = https://github.com/bitovi/funcunit.js
 [submodule "syn"]
 	path = syn
-	url = git@github.com:bitovi/syn.git
+	url = https://github.com/bitovi/syn
