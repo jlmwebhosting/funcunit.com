@@ -9,7 +9,7 @@
 	url = https://github.com/bitovi/documentjs
 [submodule "funcunit"]
 	path = funcunit
-	url = https://github.com/bitovi/funcunit.js
+	url = https://github.com/bitovi/funcunit
 [submodule "syn"]
 	path = syn
 	url = https://github.com/bitovi/syn
