@@ -1,6 +1,5 @@
 {
 	"name": "funcunit.com",
-	"version": "0.1.0",
 	"author": {
 		"name": "Bitovi",
 		"email": "contact@bitovi.com",
@@ -13,8 +12,8 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git@github.com:bitovi/funcunit.git",
-		"github": "https://github.com/bitovi/funcunit"
+		"url": "git@github.com:bitovi/funcunit.com.git",
+		"github": "https://github.com/bitovi/funcunit.com"
 	},
 	"licenses": [
 		{
