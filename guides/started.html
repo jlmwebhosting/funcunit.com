@@ -183,12 +183,14 @@ Getting Started
 
 		
 		<section class="comment">
-			<p>In this guide, we'll use FuncUnit to write functional tests for the <a href="http://bitovi.github.io/srchr">Srchr sample app</a>. We'll cover:</p>
+			<p>In this guide, we'll use FuncUnit to simulate actions as a user would with a simple tabs and slider widget.</p>
 
 <ul>
 <li>How to get FuncUnit</li>
+<li>Intro to Funcunit</li>
 <li>Enhancing unit tests</li>
-<li>Testing integration between widgets</li>
+<li>Testing a simple slider widget</li>
+<li>Functional testing with a tabs widget</li>
 </ul>
 
 <p>Note:</p>
@@ -207,13 +209,34 @@ Getting Started
 <pre><code>bower install funcunit
 </code></pre>
 
-<p>All examples below can be downloaded <a href="/dist/examples.zip">here.</a></p>
+<p>All examples below can be downloaded <a href="/dist/examples.zip">here</a>.</p>
+
+<h2>Intro to Funcunit</h2>
+
+<p>When using FuncUnit, break down a user's interaction into three segments: finding elements, executing actions and waiting for assertions.</p>
+
+<p>Find an element with jQuery's selector syntax:</p>
+
+<pre><code>F('.selector')
+</code></pre>
+
+<p>Execute a user action:</p>
+
+<pre><code>F('.selector').click()
+</code></pre>
+
+<p>Then wait for an assertion:</p>
+
+<pre><code>F('.anotherselector').visible() //waits until element is visible
+</code></pre>
+
+<p>FuncUnit can be used to enhance existing unit tests or write new unit tests while keeping the standard QUnit/Jasmine ideology. FuncUnit can also be used to write functional tests as outlined below.</p>
 
 <h2>Enhancing unit tests</h2>
 
-<p>This section will take a basic QUnit test and use FuncUnit to simulate user interaction.</p>
+<p>This section takes a basic QUnit test and use FuncUnit to simulate user interaction.</p>
 
-<p>Instead of using the built in QUnit assertions, you can use any of FuncUnit's <a href="/guides/funcunit.waits.html">waits</a>.</p>
+<p>Instead of using the built in QUnit assertions, use any of FuncUnit's <a href="/guides/funcunit.waits.html">waits</a>.</p>
 
 <pre><code>test('Hello World!', function() {
     F('.sample').text('Hello World!', 'h1 should have text hello world');
@@ -222,112 +245,117 @@ Getting Started
 
 <p><em>Note: Included in the <a href="/dist/examples.zip">examples package</a> is a "Hello World" Jasmine spec.</em></p>
 
-<h2>Testing a UI widget</h2>
+<h2>Testing a simple slider widget</h2>
 
-<p>This section will test a single UI widget, using QUnit from the <a href="http://bitovi.github.io/srchr">Srchr</a> app. Specifically, the Tabs widget will be explained here, however Srchr has many FuncUnit tests for each widget.</p>
+<p>This section takes a common <a href="http://api.jqueryui.com/slider">UI Slider</a> from jQueryUI and employs FuncUnit's actions and waits.</p>
 
-<p>Srchr is built using <a href="http://javascriptmvc.com/docs/stealjs.html">StealJS</a> and <a href="http://canjs.com">CanJS</a>.</p>
+<p>The test page is setup with our basic dependencies: jQuery, jQueryUI, QUnit and FuncUnit</p>
 
-<p>Setup is similar to any unit testing approach:</p>
+<pre><code>&lt;!doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Slider Tests&lt;/title&gt;
+    &lt;link rel="stylesheet" href="../resources/qunit.css"/&gt;
+    &lt;link rel="stylesheet" href="../resources/jquery-ui-1.10.3.custom.css"/&gt;
+  &lt;/head&gt;
 
-<pre><code>steal('ui/tabs', 'funcunit', function(Tabs, F) {
+  &lt;body&gt;
+    &lt;div id="qunit"&gt;&lt;/div&gt;
+    &lt;div id="qunit-test-area"&gt;&lt;/div&gt;
 
-    //Some DOM we'll use for testing the Tabs widget
-    var tabsHTML ="&lt;ul id='resultsTab'&gt;\
-        &lt;li&gt;&lt;a class='flickr' href='#flickr'&gt;Flickr&lt;/a&gt;&lt;/li&gt;\
-        &lt;li&gt;&lt;a class='yahoo' href='#yahoo'&gt;Yahoo&lt;/a&gt;&lt;/li&gt;\
-        &lt;li&gt;&lt;a class='upcoming' href='#upcoming'&gt;Upcoming&lt;/a&gt;&lt;/li&gt;\
-        &lt;/ul&gt;\
-        &lt;div id='flickr' class='tab'&gt;one&lt;/div&gt;\
-        &lt;div id='upcoming' class='tab'&gt;three&lt;/div&gt;\
-        &lt;div id='yahoo' class='tab'&gt;two&lt;/div&gt;";
+    &lt;script src="../resources/jquery.js"&gt;&lt;/script&gt;
+    &lt;script src="../resources/jquery-ui-1.10.3.custom.js"&gt;&lt;/script&gt;
 
-    //Using QUnit's setup/teardown methods,
-    //create a Tabs widget before each test, then clean up the DOM after
-    module("ui/tabs",{
-        setup : function(){
-            $("#qunit-test-area").html(tabsHTML);
-            this.flickrLI = $("#resultsTab li:eq(0)");
-            this.upcomingLI = $("#resultsTab li:eq(1)");
-            this.yahooLI = $("#resultsTab li:eq(1)");
-        },
-        teardown: function(){
-            $("#qunit-test-area").empty();
-        }
-    });
+    &lt;script src="../resources/qunit.js"&gt;&lt;/script&gt;
+    &lt;script src="../resources/funcunit.js"&gt;&lt;/script&gt;
 
-    //tests will go here
-});
+    &lt;script src="qunit_test.js"&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
 </code></pre>
 
-<p>Now, test basic functionality for the Tabs widget. "Tabs" shows and hides panels based on the <code>click</code> event and setting respective CSS classes.</p>
+<p>First, the test file sets up a simple slider:</p>
 
-<p>In the below example, notice: <code>F(".yahoo").click()</code>. This will trigger <code>mousedown</code>, <code>click</code> and <code>mouseup</code> accordingly, accurately depicting a true user click. <code>F("#yahoo").visible()</code> is a <a href="/guides/funcunit.waits.html">wait</a> and can take a callback method. This method will execute after $('#yahoo') is visible on the page. This is helpful for elements that are animated in, as FuncUnit will poll for a given "wait" assertion.</p>
+<pre><code class="lang-javascript">module('slider', {
+  setup: function() {
+    $('#qunit-test-area').html($('<div>'));
+    $('#qunit-test-area div').slider();
+  }
+});</code></pre>
 
-<pre><code>test("Proper hiding and showing", function() {
-    var enabled  = can.compute(['flickr','yahoo','upcoming']);
-    new Tabs("#resultsTab",{
-        enabled: enabled
-    });
+<p>To test the slider's change of value, use the <a href="/docs/FuncUnit.prototype.drag.html">drag</a> action.</p>
 
-    F(".yahoo").click();
-    F("#yahoo").visible(function() {
-        equal(F("#flickr").css('display'), 'none', "Old tab contents are hidden");
-        ok(!F(".flickr").parent().hasClass('active'), 'Old tab is not set to active');
-        ok(F(".yahoo").parent().hasClass('active'), 'New tab is set to active');
-    });
-});
+<p>All FuncUnit actions accept a callback for additional validation. With the slider widget, assert the value has increased upon sliding.</p>
+
+<pre><code class="lang-javascript">test('drag slider', function() {
+  F('#qunit-test-area a').drag('+200 +0', function() {
+    var value = $('#qunit-test-area div').slider('option', 'value');
+    ok(value > 0, 'value after 200px should not be 0');
+  });
+});</code></pre>
+
+<p>Mix or match your built in assertion library, as well as using FuncUnit's waits and actions to accurately depict user interaction.</p>
+
+<h2>Functional testing with a tabs widget</h2>
+
+<p>Functional tests, for purposes of these guides, are defined as an application running in it's true state. This is to say, not in an isolated fixture div or sandbox area. FuncUnit allows for opening a URL, then providing the same actions and waits to test the application.</p>
+
+<p><em>Note: It is recommend for these types of tests to have a fixturized service layer such as <a href="http://canjs.com/docs/can.fixture.html">CanJS fixtures</a> or use an isolated test database when service calls are present.</em></p>
+
+<p>Using <a href="/docs/FuncUnit.open.html">F.open</a>, test a simple tabs widget in it's own page.</p>
+
+<p>First, setup the QUnit runner page:</p>
+
+<pre><code>&lt;!doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Tabs Tests&lt;/title&gt;
+    &lt;link rel="stylesheet" href="../resources/qunit.css"&gt;
+  &lt;/head&gt;
+
+  &lt;body&gt;
+    &lt;div id="qunit"&gt;&lt;/div&gt;
+    &lt;div id="qunit-fixture"&gt;&lt;/div&gt;
+
+    &lt;script src="../resources/jquery.js"&gt;&lt;/script&gt;
+    &lt;script src="../resources/qunit.js"&gt;&lt;/script&gt;
+    &lt;script src="../resources/funcunit.js"&gt;&lt;/script&gt;
+
+    &lt;script src="qunit_test.js"&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
 </code></pre>
 
-<p>You can mix/match your built in assertion library as well as use FuncUnit's waits &amp; actions to accurately depict user interaction.</p>
+<p>Then configure out setup module. Call the <code>open</code> method to create a new window with the requested URL. This will act as our sandbox test area.</p>
 
-<h2>Testing integration between widgets</h2>
+<pre><code class="lang-javascript">module('tabs', {
+  setup: function() {
+    F.open('tabs.html');
+  }
+});</code></pre>
 
-<p>A more powerful use for FuncUnit is testing the interaction between widgets. Sometime's referred to as smoke or integration tests, FuncUnit provides an API to test an app via url.</p>
+<p>Then run actions and waits the same as in the slider test and watch as the newly opened window responds!</p>
 
-<p><em>Note: It is recommend for this type of test to have a fixturized service layer such as <a href="http://canjs.com/docs/can.fixture.html">CanJS fixtures</a> or use an isolated test database when service calls are present.</em></p>
-
-<p>Use <a href="/docs/FuncUnit.open.html">F.open</a> to open a new window with the url to test.</p>
-
-<pre><code>steal('funcunit', function(F) {
-    module('srchr', {
-        setup: function() {
-            F.open('srchr/srchr.html');
-        }
-    });
+<pre><code class="lang-javascript">test('single tab click', function() {
+  F('li:contains("Fallout")').click();
+  F('#starcraft').invisible('tab should be hidden');
+  F('#fallout').visible('tab should be shown');
 });
-</code></pre>
 
-<p>FuncUnit keeps a reference to the new page and can run tests in an applications true state, as opposed to within a test div with standard unit testing.</p>
+test('clicking one tab then another', function() {
+  F('li:contains("Fallout")').click();
+  F('#fallout').visible('tab should be shown');
 
-<p>Using FuncUnit's actions, waits and QUnit's built in assertions, we can test Srchr as a normal user might expect.</p>
-
-<pre><code>test('Search shows results in selected service', function() {
-    F('input[value=Reddit]').click();
-    F('#query').click().type('Dogs\r');
-
-    // wait until there are 2 results
-    F("#Reddit li").exists(function() {
-
-        ok(true, "We see results in Reddit");
-        // make sure we see dogs in the history
-        var r = /Dogs\s+r/i;
-
-        ok(r.test(F("#history li.selected").text()), "we see dogs correctly");
-
-        // make sure flickr and everyone else is diabled
-        ok(F('#results li:contains(Flickr)').hasClass('disabled'), "Flickr is disabled.");
-        ok(F('#results li:contains(Google)').hasClass('disabled'), "Google is disabled.");
-    });
-});
-</code></pre>
+  F('li:contains("Robot Unicorn Attack")').click();
+  F('#fallout').invisible('tab should be hidden');
+  F('#rua').visible('tab should be shown');
+});</code></pre>
 
 <h2>Conclusion</h2>
 
-<p>Hopefully, this guide illustrates how FuncUnit provides the holy grail of testing: easy, familiar syntax, in browser running for
-easy debugging and simple automation.</p>
+<p>Hopefully, this guide illustrates how FuncUnit provides the holy grail of testing: easy, familiar syntax, in browser running for easy debugging and simple automation.</p>
 
-<p>FuncUnit will transform your development lifecycle, give your developers confidence and improve quality.</p>
+<p>FuncUnit transforms your development lifecycle, gives your developers confidence and improves quality. For a more complex example with module loaders and multiple widgets, download the <a href="/dist/examples.zip">examples package</a> and view the Srchr app's tests.</p>
 
 <p>That's it! If you want to learn more, read about FuncUnit's <a href="/docs">FuncUnit API</a>.</p>
 		</section>
