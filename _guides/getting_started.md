@@ -89,7 +89,7 @@ First, the test file sets up a simple slider:
 @codestart
 module('slider', {
   setup: function() {
-    $('#qunit-test-area').html($('<div>'));
+    $('#qunit-test-area').html($('&lt;div>'));
     $('#qunit-test-area div').slider();
   }
 });
